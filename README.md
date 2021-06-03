@@ -1,4 +1,4 @@
-# Covidia
+# csia_car_park
 
 ## 🛠 Pré-requis
 * GCC
@@ -8,8 +8,8 @@
 
 ### ⬇️ Récupération du projet
 ```
-git clone https://github.com/leodelmas/covidia.git
-cd covidia
+git clone https://github.com/leodelmas/csia_car_park.git
+cd csia_car_park
 ```
 
 ### ⚙️ Back-end
