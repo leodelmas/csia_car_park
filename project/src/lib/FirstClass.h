@@ -4,14 +4,10 @@
 //  Brief:
 ///////////////////////////////////////////////////////////
 
-#include <FirstClass.h>
+#pragma once
 
-FirstClass::FirstClass()
+class FirstClass
 {
-
-}
-
-FirstClass::~FirstClass()
-{
-    
-}
+    FirstClass();
+    ~FirstClass();
+};
