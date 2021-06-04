@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 04 juin 2021 à 13:49
+-- Généré le : ven. 04 juin 2021 à 15:42
 -- Version du serveur :  8.0.25-0ubuntu0.20.04.1
 -- Version de PHP : 7.4.3
 
@@ -102,7 +102,7 @@ CREATE TABLE `motor` (
   `cylinder` float NOT NULL,
   `horsePower` int NOT NULL,
   `newtonMeter` int NOT NULL,
-  `numberCilender` int NOT NULL,
+  `numberCylinder` int NOT NULL,
   `idFuel` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
