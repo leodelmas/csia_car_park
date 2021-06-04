@@ -6,7 +6,9 @@
 
 #include <Model.h>
 
-Model::Model(){}
+Model::Model():
+    m_pBrand(NULL)
+{}
 
 Model::~Model(){}
 
