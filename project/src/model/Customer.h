@@ -16,7 +16,7 @@ public:
 
     //Id
     int* getId();
-    void setId(int p_id);
+    void setId(int* p_id);
     //FirstName
     std::string* getFirstName();
     void setFirstName(std::string* p_firstName);
@@ -31,10 +31,10 @@ public:
     void setPhone(std::string* p_phone);
     //Gender
     std::string* getGender();
-    void setGender(std::string* p_Gender);
+    void setGender(std::string* p_gender);
     //Address
     std::string* getAddress();
-    void setAddress(std::string* p_Address);
+    void setAddress(std::string* p_address);
 
 private:
     int m_id;

@@ -19,7 +19,7 @@ public:
     void setId(int* p_id);
     //Name
     std::string* getLabel();
-    void setLabel(std::string* p_Label);
+    void setLabel(std::string* p_label);
 
 private:
     int m_id;

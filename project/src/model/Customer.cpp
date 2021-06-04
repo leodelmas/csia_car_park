@@ -33,7 +33,7 @@ void Customer::setFirstName(std::string* p_firstName)
 //LastName
 std::string* Customer::getLastName()
 {
-    return &m_m_lastName;
+    return &m_lastName;
 }
 void Customer::setLastName(std::string* p_lastName)
 {
@@ -65,18 +65,18 @@ std::string* Customer::getGender()
 {
     return &m_gender;
 }
-void Customer::setGender(std::string* p_Gender)
+void Customer::setGender(std::string* p_gender)
 {
     //TODO: Créer un système d'assert
-    m_gender = *p_Gender;
+    m_gender = *p_gender;
 }
 //Address
 std::string* Customer::getAddress()
 {
     return &m_address;
 }
-void Customer::setAddress(std::string* p_Address)
+void Customer::setAddress(std::string* p_address)
 {
     //TODO: Créer un système d'assert
-    m_address = *p_Address;
+    m_address = *p_address;
 }

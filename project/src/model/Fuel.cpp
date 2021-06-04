@@ -25,8 +25,8 @@ std::string* Fuel::getLabel()
 {
     return &m_label;
 }
-void Fuel::setLabel(std::string* p_Label)
+void Fuel::setLabel(std::string* p_label)
 {
     //TODO: Créer un système d'assert
-    m_fuel = *p_fuel;
+    m_label = *p_label;
 }

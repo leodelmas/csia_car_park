@@ -25,8 +25,8 @@ std::string* Brand::getName()
 {
     return &m_name;
 }
-void Brand::setName(std::string* p_Name)
+void Brand::setName(std::string* p_name)
 {
     //TODO: Créer un système d'assert
-    m_name = *p_Name;
+    m_name = *p_name;
 }
