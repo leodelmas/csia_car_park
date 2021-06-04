@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : jeu. 03 juin 2021 à 15:48
+-- Hôte : localhost:3306
+-- Généré le : ven. 04 juin 2021 à 13:49
 -- Version du serveur :  8.0.25-0ubuntu0.20.04.1
--- Version de PHP : 7.4.16
+-- Version de PHP : 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -98,7 +99,7 @@ CREATE TABLE `model` (
 CREATE TABLE `motor` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `cilender` float NOT NULL,
+  `cylinder` float NOT NULL,
   `horsePower` int NOT NULL,
   `newtonMeter` int NOT NULL,
   `numberCilender` int NOT NULL,
