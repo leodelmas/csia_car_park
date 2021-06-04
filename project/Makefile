@@ -39,4 +39,4 @@ $(BUILD_DIR)/%.cpp.o: %.cpp
 	$(COMPILATEUR) $(CPPFLAGS) $(CXXFLAGS) $< -g -c -o $@
 
 clean:
-	rm -r $(BUILD_DIR)
+	rm -fr $(BUILD_DIR)

@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////
 //  Author: Sorlin Sylvain
-//  Class: Brand
+//  Class: Fuel
 //  Brief: Header file
 ///////////////////////////////////////////////////////////
 
@@ -8,20 +8,20 @@
 
 #include <string>
 
-class Brand
+class OptionCar
 {
 public:
-    Brand();
-    ~Brand();
+    OptionCar();
+    ~OptionCar();
 
     //Id
     int* getId();
     void setId(int* p_pId);
-    //Name
-    std::string* getName();
-    void setName(std::string* p_pName);
+    //Label
+    std::string* getLabel();
+    void setLabel(std::string* p_pLabel);
 
 private:
     int m_id;
-    std::string m_name;
+    std::string m_label;
 };

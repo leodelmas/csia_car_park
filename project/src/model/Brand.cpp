@@ -15,18 +15,18 @@ int* Brand::getId()
 {
     return &m_id;
 }
-void Brand::setId(int* p_id)
+void Brand::setId(int* p_pId)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_id;
+    m_id = *p_pId;
 }
 //Name
 std::string* Brand::getName()
 {
     return &m_name;
 }
-void Brand::setName(std::string* p_name)
+void Brand::setName(std::string* p_pName)
 {
     //TODO: Créer un système d'assert
-    m_name = *p_name;
+    m_name = *p_pName;
 }

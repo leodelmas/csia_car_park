@@ -1,31 +1,31 @@
 ///////////////////////////////////////////////////////////
-//  Author: Maitre Tristan
-//  Class: Fuel
+//  Author: Sorlin Sylvain
+//  Class: OptionCar
 //  Brief: Description file
 ///////////////////////////////////////////////////////////
 
-#include <Fuel.h>
+#include <OptionCar.h>
 
-Fuel::Fuel(){}
+OptionCar::OptionCar(){}
 
-Fuel::~Fuel(){}
+OptionCar::~OptionCar(){}
 
 //Id
-int* Fuel::getId()
+int* OptionCar::getId()
 {
     return &m_id;
 }
-void Fuel::setId(int* p_pIid)
+void OptionCar::setId(int* p_pId)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pIid;
+    m_id = *p_pId;
 }
 //Label
-std::string* Fuel::getLabel()
+std::string* OptionCar::getLabel()
 {
     return &m_label;
 }
-void Fuel::setLabel(std::string* p_pLabel)
+void OptionCar::setLabel(std::string* p_pLabel)
 {
     //TODO: Créer un système d'assert
     m_label = *p_pLabel;

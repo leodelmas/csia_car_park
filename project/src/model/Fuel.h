@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Author: Sorlin Sylvain
 //  Class: Fuel
-//  Brief: 
+//  Brief: Header file
 ///////////////////////////////////////////////////////////
 
 #pragma once
@@ -16,10 +16,10 @@ public:
 
     //Id
     int* getId();
-    void setId(int* p_id);
-    //Name
+    void setId(int* p_pId);
+    //Label
     std::string* getLabel();
-    void setLabel(std::string* p_label);
+    void setLabel(std::string* p_pLabel);
 
 private:
     int m_id;

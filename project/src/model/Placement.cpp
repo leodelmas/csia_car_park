@@ -1,31 +1,31 @@
 ///////////////////////////////////////////////////////////
-//  Author: Maitre Tristan
-//  Class: Fuel
+//  Author: Sorlin Sylvain
+//  Class: Placement
 //  Brief: Description file
 ///////////////////////////////////////////////////////////
 
-#include <Fuel.h>
+#include <Placement.h>
 
-Fuel::Fuel(){}
+Placement::Placement(){}
 
-Fuel::~Fuel(){}
+Placement::~Placement(){}
 
 //Id
-int* Fuel::getId()
+int* Placement::getId()
 {
     return &m_id;
 }
-void Fuel::setId(int* p_pIid)
+void Placement::setId(int* p_pId)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pIid;
+    m_id = *p_pId;
 }
 //Label
-std::string* Fuel::getLabel()
+std::string* Placement::getLabel()
 {
     return &m_label;
 }
-void Fuel::setLabel(std::string* p_pLabel)
+void Placement::setLabel(std::string* p_pLabel)
 {
     //TODO: Créer un système d'assert
     m_label = *p_pLabel;

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////
 //  Author: Sorlin Sylvain
 //  Class: Customer
-//  Brief: 
+//  Brief: Header file
 ///////////////////////////////////////////////////////////
 
 #pragma once
@@ -16,25 +16,25 @@ public:
 
     //Id
     int* getId();
-    void setId(int* p_id);
+    void setId(int* p_pId);
     //FirstName
     std::string* getFirstName();
-    void setFirstName(std::string* p_firstName);
+    void setFirstName(std::string* p_pFirstName);
     //LastName
     std::string* getLastName();
-    void setLastName(std::string* p_lastName);
+    void setLastName(std::string* p_pLastName);
     //Email
     std::string* getEmail();
-    void setEmail(std::string* p_email);
+    void setEmail(std::string* p_pEmail);
     //Phone
     std::string* getPhone();
-    void setPhone(std::string* p_phone);
+    void setPhone(std::string* p_pPhone);
     //Gender
     std::string* getGender();
-    void setGender(std::string* p_gender);
+    void setGender(std::string* p_pGender);
     //Address
     std::string* getAddress();
-    void setAddress(std::string* p_address);
+    void setAddress(std::string* p_pAddress);
 
 private:
     int m_id;

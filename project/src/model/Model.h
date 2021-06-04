@@ -1,27 +1,32 @@
 ///////////////////////////////////////////////////////////
 //  Author: Sorlin Sylvain
-//  Class: Brand
+//  Class: Model
 //  Brief: Header file
 ///////////////////////////////////////////////////////////
 
 #pragma once
 
 #include <string>
+#include <Brand.h>
 
-class Brand
+class Model
 {
 public:
-    Brand();
-    ~Brand();
+    Model();
+    ~Model();
 
     //Id
     int* getId();
     void setId(int* p_pId);
-    //Name
-    std::string* getName();
-    void setName(std::string* p_pName);
+    //Label
+    std::string* getLabel();
+    void setLabel(std::string* p_pLabel);
+    //Brand
+    Brand* getBrand();
+    void setBrand(Brand* p_pBrand);
 
 private:
     int m_id;
-    std::string m_name;
+    std::string m_label;
+    Brand* m_pBrand;
 };
