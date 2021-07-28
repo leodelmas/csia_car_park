@@ -10,9 +10,10 @@
 
 using namespace std;
 
+static App l_app;
+
 int main()
 {
-    App l_app;
     l_app.launch();
     cout << "Hello world!" << endl;
     return 0;
