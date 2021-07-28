@@ -15,11 +15,11 @@ public:
     ~Brand();
 
     //Id
-    int* getId();
-    void setId(int* p_pId);
+    int& getId();
+    void setId(int p_pId);
     //Name
-    std::string* getName();
-    void setName(std::string* p_pName);
+    std::string& getName();
+    void setName(std::string p_pName);
 
 private:
     int m_id;

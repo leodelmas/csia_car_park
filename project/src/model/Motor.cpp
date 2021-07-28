@@ -12,64 +12,64 @@ Motor::Motor()
 Motor::~Motor(){}
 
 //Id
-int* Motor::getId()
+int& Motor::getId()
 {
-    return &m_id;
+    return m_id;
 }
-void Motor::setId(int* p_pId)
+void Motor::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pId;
+    m_id = p_Id;
 }
 //Name
-std::string* Motor::getName()
+std::string& Motor::getName()
 {
-    return &m_name;
+    return m_name;
 }
-void Motor::setName(std::string* p_pName)
+void Motor::setName(std::string p_Name)
 {
     //TODO: Créer un système d'assert
-    m_name = *p_pName;
+    m_name = p_Name;
 }
 //Cylinder
-float* Motor::getCylinder()
+float& Motor::getCylinder()
 {
-    return &m_cylinder;
+    return m_cylinder;
 }
-void Motor::setCylinder(float* p_pCylinder)
+void Motor::setCylinder(float p_Cylinder)
 {
     //TODO: Créer un système d'assert
-    m_cylinder = *p_pCylinder;
+    m_cylinder = p_Cylinder;
 }
 //HorsePower
-int* Motor::getHorsePower()
+int& Motor::getHorsePower()
 {
-    return &m_horsePower;
+    return m_horsePower;
 }
-void Motor::setHorsePower(int* p_pHorsePower)
+void Motor::setHorsePower(int p_HorsePower)
 {
     //TODO: Créer un système d'assert
-    m_horsePower = *p_pHorsePower;
+    m_horsePower = p_HorsePower;
 }
 //NewtonMeter
-int* Motor::getNewtonMeter()
+int& Motor::getNewtonMeter()
 {
-    return &m_newtonMeter;
+    return m_newtonMeter;
 }
-void Motor::setNewtonMetel(int* p_pNewtonMeter)
+void Motor::setNewtonMetel(int p_NewtonMeter)
 {
     //TODO: Créer un système d'assert
-    m_newtonMeter = *p_pNewtonMeter;
+    m_newtonMeter = p_NewtonMeter;
 }
 //NumberCylinder
-int* Motor::getNumberCylinder()
+int& Motor::getNumberCylinder()
 {
-    return &m_numberCylinder;
+    return m_numberCylinder;
 }
-void Motor::setNumberCylinder(int* p_pNumberCylinder)
+void Motor::setNumberCylinder(int p_NumberCylinder)
 {
     //TODO: Créer un système d'assert
-    m_numberCylinder = *p_pNumberCylinder;
+    m_numberCylinder = p_NumberCylinder;
 }
 //Fuel
 Fuel* Motor::getFuel()

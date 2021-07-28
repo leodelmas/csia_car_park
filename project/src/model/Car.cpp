@@ -10,59 +10,59 @@ Car::Car(){}
 Car::~Car(){}
 
 //Id
-int* Car::getId()
+int& Car::getId()
 {
-    return &m_id;
+    return m_id;
 }
-void Car::setId(int* p_pId)
+void Car::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pId;
+    m_id = p_Id;
 }
 //Kilometer
-int* Car::getKilometer()
+int& Car::getKilometer()
 {
-    return &m_kilometer;
+    return m_kilometer;
 }
-void Car::setKilometer(int* p_pKilometer)
+void Car::setKilometer(int p_Kilometer)
 {
     //TODO: Créer un système d'assert
-    m_kilometer = *p_pKilometer;
+    m_kilometer = p_Kilometer;
 }
 //Consumption
-float* Car::getConsumption()
+float& Car::getConsumption()
 {
-    return &m_consumption;
+    return m_consumption;
 }
-void Car::setConsumption(float* p_pConsumption)
+void Car::setConsumption(float p_Consumption)
 {
     //TODO: Créer un système d'assert
-    m_consumption = *p_pConsumption;
+    m_consumption = p_Consumption;
 }
 //Color
-std::string* Car::getColor()
+std::string& Car::getColor()
 {
-    return &m_color;
+    return m_color;
 }
-void Car::setColor(std::string* p_pColor)
+void Car::setColor(std::string p_Color)
 {
     //TODO: Créer un système d'assert
-    m_color = *p_pColor;
+    m_color = p_Color;
 }
 //IsReserved
-bool* Car::getIsReserved()
+bool& Car::getIsReserved()
 {
-    return &m_isReserved;
+    return m_isReserved;
 }
-void Car::setIsReserved(bool* p_pIsReserved)
+void Car::setIsReserved(bool p_IsReserved)
 {
     //TODO: Créer un système d'assert
-    m_isReserved = *p_pIsReserved;
+    m_isReserved = p_IsReserved;
 }
 //ReleaseDate
-tm* Car::getReleaseDate()
+tm& Car::getReleaseDate()
 {
-    return &m_releaseDate;
+    return m_releaseDate;
 }
 void Car::setReleaseDate(tm* p_pReleaseDate)
 {

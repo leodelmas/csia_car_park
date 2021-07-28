@@ -16,23 +16,23 @@ public:
     ~Motor();
 
     //Id
-    int* getId();
-    void setId(int* p_pId);
+    int& getId();
+    void setId(int p_Id);
     //Name
-    std::string* getName();
-    void setName(std::string* p_pName);
+    std::string& getName();
+    void setName(std::string p_Name);
     //Cylinder
-    float* getCylinder();
-    void setCylinder(float* p_pCylinder);
+    float& getCylinder();
+    void setCylinder(float p_Cylinder);
     //HorsePower
-    int* getHorsePower();
-    void setHorsePower(int* p_pHorsePower);
+    int& getHorsePower();
+    void setHorsePower(int p_HorsePower);
     //NewtonMeter
-    int* getNewtonMeter();
-    void setNewtonMetel(int* p_pNewtonMeter);
+    int& getNewtonMeter();
+    void setNewtonMetel(int p_NewtonMeter);
     //NumberCylinder
-    int* getNumberCylinder();
-    void setNumberCylinder(int* p_pNumberCylinder);
+    int& getNumberCylinder();
+    void setNumberCylinder(int p_NumberCylinder);
     //Fuel
     Fuel* getFuel();
     void setFuel(Fuel* p_pFuel);

@@ -21,22 +21,22 @@ public:
     ~Car();
 
     //Id
-    int* getId();
-    void setId(int* p_pId);
+    int& getId();
+    void setId(int p_Id);
     //Kilometer
-    int* getKilometer();
-    void setKilometer(int* p_pKilometer);
+    int& getKilometer();
+    void setKilometer(int p_Kilometer);
     //Consumption
-    float* getConsumption();
-    void setConsumption(float* p_pConsumption);
+    float& getConsumption();
+    void setConsumption(float p_Consumption);
     //Color
-    std::string* getColor();
-    void setColor(std::string* p_pColor);
+    std::string& getColor();
+    void setColor(std::string p_Color);
     //IsReserved
-    bool* getIsReserved();
-    void setIsReserved(bool* p_pIsReserved);
+    bool& getIsReserved();
+    void setIsReserved(bool p_IsReserved);
     //ReleaseDate
-    tm* getReleaseDate();
+    tm& getReleaseDate();
     void setReleaseDate(tm* p_pReleaseDate);
     //Placement
     Placement* getPlacement();

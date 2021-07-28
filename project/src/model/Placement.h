@@ -15,11 +15,11 @@ public:
     ~Placement();
 
     //Id
-    int* getId();
-    void setId(int* p_pId);
+    int& getId();
+    void setId(int p_Id);
     //Label
-    std::string* getLabel();
-    void setLabel(std::string* p_pLabel);
+    std::string& getLabel();
+    void setLabel(std::string p_Label);
 
 private:
     int m_id;

@@ -11,22 +11,22 @@ OptionCar::OptionCar(){}
 OptionCar::~OptionCar(){}
 
 //Id
-int* OptionCar::getId()
+int& OptionCar::getId()
 {
-    return &m_id;
+    return m_id;
 }
-void OptionCar::setId(int* p_pId)
+void OptionCar::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pId;
+    m_id = p_Id;
 }
 //Label
-std::string* OptionCar::getLabel()
+std::string& OptionCar::getLabel()
 {
-    return &m_label;
+    return m_label;
 }
-void OptionCar::setLabel(std::string* p_pLabel)
+void OptionCar::setLabel(std::string p_Label)
 {
     //TODO: Créer un système d'assert
-    m_label = *p_pLabel;
+    m_label = p_Label;
 }

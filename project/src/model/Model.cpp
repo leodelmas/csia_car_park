@@ -13,24 +13,24 @@ Model::Model():
 Model::~Model(){}
 
 //Id
-int* Model::getId()
+int& Model::getId()
 {
-    return &m_id;
+    return m_id;
 }
-void Model::setId(int* p_pId)
+void Model::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = *p_pId;
+    m_id = p_Id;
 }
 //Label
-std::string* Model::getLabel()
+std::string& Model::getLabel()
 {
-    return &m_label;
+    return m_label;
 }
-void Model::setLabel(std::string* p_pLabel)
+void Model::setLabel(std::string p_Label)
 {
     //TODO: Créer un système d'assert
-    m_label = *p_pLabel;
+    m_label = p_Label;
 }
 //Brand
 Brand* Model::getBrand()
