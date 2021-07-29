@@ -6,7 +6,11 @@
 
 #include <Brand.h>
 
-Brand::Brand(){}
+Brand::Brand():
+    m_id(0),
+    m_name("")
+{
+}
 
 Brand::~Brand(){}
 
@@ -15,18 +19,8 @@ int& Brand::getId()
 {
     return m_id;
 }
-void Brand::setId(int p_pId)
-{
-    //TODO: Créer un système d'assert
-    m_id = p_pId;
-}
 //Name
 std::string& Brand::getName()
 {
     return m_name;
-}
-void Brand::setName(std::string p_pName)
-{
-    //TODO: Créer un système d'assert
-    m_name = p_pName;
 }

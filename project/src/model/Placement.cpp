@@ -6,7 +6,10 @@
 
 #include <Placement.h>
 
-Placement::Placement(){}
+Placement::Placement():
+    m_id(0),
+    m_label("")
+{}
 
 Placement::~Placement(){}
 
@@ -15,18 +18,8 @@ int& Placement::getId()
 {
     return m_id;
 }
-void Placement::setId(int p_Id)
-{
-    //TODO: Créer un système d'assert
-    m_id = p_Id;
-}
 //Label
 std::string& Placement::getLabel()
 {
     return m_label;
-}
-void Placement::setLabel(std::string p_Label)
-{
-    //TODO: Créer un système d'assert
-    m_label = p_Label;
 }

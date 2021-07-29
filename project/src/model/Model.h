@@ -17,13 +17,10 @@ public:
 
     //Id
     int& getId();
-    void setId(int p_Id);
     //Label
     std::string& getLabel();
-    void setLabel(std::string p_Label);
     //Brand
     Brand* getBrand();
-    void setBrand(Brand* p_pBrand);
 
 private:
     int m_id;

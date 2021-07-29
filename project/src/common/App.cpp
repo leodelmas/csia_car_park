@@ -13,7 +13,7 @@ App::~App(){}
 
 void App::launch()
 {
-    m_ListBrand[0].setId(2);
+    m_ListBrand[0].getId() = 2;
     int& l_id = m_ListBrand[0].getId(); // Récupération de l'id, attention l_id est la même variable que le return de getId();
     printf("l_id=%d\n", l_id);
     l_id = 5;
