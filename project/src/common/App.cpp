@@ -6,6 +6,7 @@
 
 #include <App.h>
 #include <iostream>
+#include <array>
 
 App::App(){}
 

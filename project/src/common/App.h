@@ -16,6 +16,7 @@
 #include <OptionCar.h>
 #include <Placement.h>
 #include <Seller.h>
+#include <Vector.h>
 
 class App
 {
@@ -25,15 +26,15 @@ public:
     ~App();
 
 private:
-    Brand m_ListBrand[MAX_BRAND];
-    Car m_ListCar[MAX_CAR];
-    Customer m_ListCustomer[MAX_CUSTOMER];
-    Fuel m_ListFuel[MAX_FUEL];
-    Model m_ListModel[MAX_MODEL];
-    Motor m_ListMotor[MAX_MOTOR];
-    OptionCar m_ListOptionCar[MAX_OPTION_CAR];
-    Placement m_ListPlacement[MAX_PLACEMENT];
-    Seller m_ListSeller[MAX_SELLER];
+    Vector<Brand, MAX_BRAND> m_ListBrand;
+    Vector<Car, MAX_CAR> m_ListCar;
+    Vector<Customer, MAX_CUSTOMER> m_ListCustomer;
+    Vector<Fuel, MAX_FUEL> m_ListFuel;
+    Vector<Model, MAX_MODEL> m_ListModel;
+    Vector<Motor, MAX_MOTOR> m_ListMotor;
+    Vector<OptionCar, MAX_OPTION_CAR> m_ListOptionCar;
+    Vector<Placement, MAX_PLACEMENT> m_ListPlacement;
+    Vector<Seller, MAX_SELLER> m_ListSeller;
     
 public:
     void launch();
