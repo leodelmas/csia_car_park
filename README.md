@@ -3,6 +3,8 @@
 ## 🛠 Pré-requis
 * GCC
 * GDB
+* libmysqlcppconn-dev 
+* libmysqlcppconn7v5
 
 ## 📦 Installation
 
