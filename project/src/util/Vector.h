@@ -13,9 +13,9 @@ public:
 
     ~Vector();
 
-    T & operator[](const int& p_Id);
+    T& operator[](const int& p_Id);
 
-    const T & operator[](const int& p_Id) const;
+    const T& operator[](const int& p_Id) const;
 
     /**
      * Renvoie la taille du max vecteur
@@ -29,9 +29,7 @@ public:
 
     void delette(const int& p_Id);
 
-    void add(const int& p_Id, const T& p_Value);
-
-    void add(const T& p_Value);
+    T& selectOne();
 
     bool isEmpty() const;
 
@@ -42,6 +40,7 @@ public:
 private:
     T m_Vector[N];
     int m_Count;
+    T m_Base;
 };
 
 /////////////////////////////////
@@ -91,32 +90,25 @@ void Vector<T, N>::delette(const int& p_Id)
 {
     //TODO: Assert si p_Id > count()
 
-    for(int i = p_Id; i < (this->count() - 1); i++)
+    if(p_Id == 0)
     {
-        m_Vector[i] = m_Vector[i + 1];
+        m_Vector[0] = m_Base;
     }
-    m_Count--;
+    else
+    {
+        for(int i = p_Id; i < (this->count() - 1); i++)
+        {
+            m_Vector[i] = m_Vector[i + 1];
+        }
+        m_Count--;
+        m_Vector[m_Count] = m_Base;
+    }    
 }
 
 template<class T, int N>
-void Vector<T, N>::add(const int& p_Id, const T& p_Value)
+T& Vector<T, N>::selectOne()
 {
-    // Assert si p_Id > count()
-    // Assert si p_Id < size
-
-    for(int i = this->count(); i > p_Id; i--)
-    {
-        m_Vector[i] = m_Vector[i - 1];
-    }
-    m_Vector[p_Id] = p_Value;
-    m_Count++;
-}
-
-template<class T, int N>
-void Vector<T, N>::add(const T& p_Value)
-{
-    // Assert si isfull == true
-    m_Vector[m_Count] = p_Value;
+    return m_Vector[m_Count];
     m_Count++;
 }
 
@@ -135,5 +127,9 @@ bool Vector<T, N>::isFull() const
 template<class T, int N>
 void Vector<T, N>::clear_all()
 {
+    for(i = 0; i < m_Count; i++)
+    {
+        m_Vector[i] = m_Base;
+    }
     m_Count = 0;
 }
