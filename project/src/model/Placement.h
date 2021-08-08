@@ -22,6 +22,6 @@ public:
     void setLabel(std::string p_Label);
 
 private:
-    int m_id;
-    std::string m_label;
+    int m_Id;
+    std::string m_Label;
 };

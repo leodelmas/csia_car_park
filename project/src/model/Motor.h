@@ -38,11 +38,11 @@ public:
     void setFuel(Fuel* p_pFuel);
 
 private:
-    int m_id;
-    std::string m_name;
-    float m_cylinder;
-    int m_horsePower;
-    int m_newtonMeter;
-    int m_numberCylinder;
+    int m_Id;
+    std::string m_Name;
+    float m_Cylinder;
+    int m_HorsePower;
+    int m_NewtonMeter;
+    int m_NumberCylinder;
     Fuel* m_pFuel;
 };

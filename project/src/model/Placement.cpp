@@ -6,27 +6,30 @@
 
 #include <Placement.h>
 
-Placement::Placement(){}
+Placement::Placement():
+    m_Id(0),
+    m_Label("")
+{}
 
 Placement::~Placement(){}
 
 //Id
 int& Placement::getId()
 {
-    return m_id;
+    return m_Id;
 }
 void Placement::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = p_Id;
+    m_Id = p_Id;
 }
 //Label
 std::string& Placement::getLabel()
 {
-    return m_label;
+    return m_Label;
 }
 void Placement::setLabel(std::string p_Label)
 {
     //TODO: Créer un système d'assert
-    m_label = p_Label;
+    m_Label = p_Label;
 }

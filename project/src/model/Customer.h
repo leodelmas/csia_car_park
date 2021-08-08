@@ -37,11 +37,11 @@ public:
     void setAddress(std::string p_Address);
 
 private:
-    int m_id;
-    std::string m_firstName;
-    std::string m_lastName;
-    std::string m_email;
-    std::string m_phone;
-    std::string m_gender;
-    std::string m_address;
+    int m_Id;
+    std::string m_FirstName;
+    std::string m_LastName;
+    std::string m_Email;
+    std::string m_Phone;
+    std::string m_Gender;
+    std::string m_Address;
 };

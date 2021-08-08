@@ -7,6 +7,8 @@
 #include <Model.h>
 
 Model::Model():
+    m_Id(0),
+    m_Label(""),
     m_pBrand(NULL)
 {}
 
@@ -15,22 +17,22 @@ Model::~Model(){}
 //Id
 int& Model::getId()
 {
-    return m_id;
+    return m_Id;
 }
 void Model::setId(int p_Id)
 {
     //TODO: Créer un système d'assert
-    m_id = p_Id;
+    m_Id = p_Id;
 }
 //Label
 std::string& Model::getLabel()
 {
-    return m_label;
+    return m_Label;
 }
 void Model::setLabel(std::string p_Label)
 {
     //TODO: Créer un système d'assert
-    m_label = p_Label;
+    m_Label = p_Label;
 }
 //Brand
 Brand* Model::getBrand()

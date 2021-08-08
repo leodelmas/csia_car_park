@@ -25,7 +25,7 @@ public:
     void setFirstName(std::string p_FirstName);
 
 private:
-    int m_id;
-    std::string m_lastName;
-    std::string m_firstName;
+    int m_Id;
+    std::string m_LastName;
+    std::string m_FirstName;
 };

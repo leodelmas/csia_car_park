@@ -26,7 +26,7 @@ public:
     void setBrand(Brand* p_pBrand);
 
 private:
-    int m_id;
-    std::string m_label;
+    int m_Id;
+    std::string m_Label;
     Brand* m_pBrand;
 };
