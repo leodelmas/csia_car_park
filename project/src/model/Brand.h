@@ -19,7 +19,7 @@ public:
     void setId(int p_Id);
     //Name
     std::string& getName();
-    void setName(const char* p_Name);
+    void setName(std::string p_pName);
 
 private:
     int m_Id;

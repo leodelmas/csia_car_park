@@ -31,7 +31,7 @@ public:
     void setConsumption(float p_Consumption);
     //Color
     std::string& getColor();
-    void setColor(const char*);
+    void setColor(std::string p_Color);
     //IsReserved
     bool& getIsReserved();
     void setIsReserved(bool p_IsReserved);

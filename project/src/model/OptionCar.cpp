@@ -6,10 +6,7 @@
 
 #include <OptionCar.h>
 
-OptionCar::OptionCar():
-    m_id(0),
-    m_label("")
-{}
+OptionCar::OptionCar(){}
 
 OptionCar::~OptionCar(){}
 
@@ -18,8 +15,18 @@ int& OptionCar::getId()
 {
     return m_id;
 }
+void OptionCar::setId(int p_Id)
+{
+    //TODO: Créer un système d'assert
+    m_id = p_Id;
+}
 //Label
 std::string& OptionCar::getLabel()
 {
     return m_label;
+}
+void OptionCar::setLabel(std::string p_Label)
+{
+    //TODO: Créer un système d'assert
+    m_label = p_Label;
 }

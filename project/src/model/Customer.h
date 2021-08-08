@@ -16,18 +16,25 @@ public:
 
     //Id
     int& getId();
+    void setId(int p_pId);
     //FirstName
     std::string& getFirstName();
+    void setFirstName(std::string p_FirstName);
     //LastName
     std::string& getLastName();
+    void setLastName(std::string p_LastName);
     //Email
     std::string& getEmail();
+    void setEmail(std::string p_Email);
     //Phone
     std::string& getPhone();
+    void setPhone(std::string p_Phone);
     //Gender
     std::string& getGender();
+    void setGender(std::string p_Gender);
     //Address
     std::string& getAddress();
+    void setAddress(std::string p_Address);
 
 private:
     int m_id;
