@@ -7,12 +7,12 @@
 #include <Car.h>
 
 Car::Car():
-    m_id(0),
-    m_kilometer(0),
-    m_consumption(0.0f),
-    m_color(""),
-    m_isReserved(false),
-    m_releaseDate(),
+    m_Id(0),
+    m_Kilometer(0),
+    m_Consumption(0.0f),
+    m_Color(""),
+    m_IsReserved(false),
+    m_ReleaseDate(),
     m_pPlacement(NULL),
     m_pMotor(NULL),
     m_pModel(NULL),
@@ -25,32 +25,32 @@ Car::~Car(){}
 //Id
 int& Car::getId()
 {
-    return m_id;
+    return m_Id;
 }
 //Kilometer
 int& Car::getKilometer()
 {
-    return m_kilometer;
+    return m_Kilometer;
 }
 //Consumption
 float& Car::getConsumption()
 {
-    return m_consumption;
+    return m_Consumption;
 }
 //Color
 std::string& Car::getColor()
 {
-    return m_color;
+    return m_Color;
 }
 //IsReserved
 bool& Car::getIsReserved()
 {
-    return m_isReserved;
+    return m_IsReserved;
 }
 //ReleaseDate
 tm& Car::getReleaseDate()
 {
-    return m_releaseDate;
+    return m_ReleaseDate;
 }
 //Placement
 Placement* Car::getPlacement()

@@ -7,8 +7,8 @@
 #include <Brand.h>
 
 Brand::Brand():
-    m_id(0),
-    m_name("")
+    m_Id(0),
+    m_Name("")
 {
 }
 
@@ -17,10 +17,19 @@ Brand::~Brand(){}
 //Id
 int& Brand::getId()
 {
-    return m_id;
+    return m_Id;
+}
+void Brand::setId(int p_Id)
+{
+    m_Id = p_Id;
 }
 //Name
 std::string& Brand::getName()
 {
-    return m_name;
+    return m_Name;
+}
+void Brand::setName(const char* p_Name)
+{
+    // Assert if is null p_Name
+    m_Name = p_Name;
 }

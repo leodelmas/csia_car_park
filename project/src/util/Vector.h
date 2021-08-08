@@ -108,8 +108,8 @@ void Vector<T, N>::delette(const int& p_Id)
 template<class T, int N>
 T& Vector<T, N>::selectOne()
 {
-    return m_Vector[m_Count];
-    m_Count++;
+    // Assert isfull = true
+    return m_Vector[m_Count++];
 }
 
 template<class T, int N>
@@ -127,7 +127,7 @@ bool Vector<T, N>::isFull() const
 template<class T, int N>
 void Vector<T, N>::clear_all()
 {
-    for(i = 0; i < m_Count; i++)
+    for(int i = 0; i < m_Count; i++)
     {
         m_Vector[i] = m_Base;
     }

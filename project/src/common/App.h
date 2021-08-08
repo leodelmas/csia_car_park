@@ -38,4 +38,6 @@ private:
     
 public:
     void launch();
+    void running();
+    void closing();
 };

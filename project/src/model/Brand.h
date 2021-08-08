@@ -16,10 +16,12 @@ public:
 
     //Id
     int& getId();
+    void setId(int p_Id);
     //Name
     std::string& getName();
+    void setName(const char* p_Name);
 
 private:
-    int m_id;
-    std::string m_name;
+    int m_Id;
+    std::string m_Name;
 };

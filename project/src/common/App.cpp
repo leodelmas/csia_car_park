@@ -14,9 +14,23 @@ App::~App(){}
 
 void App::launch()
 {
-    m_ListBrand[0].getId() = 2;
-    int& l_id = m_ListBrand[0].getId(); // Récupération de l'id, attention l_id est la même variable que le return de getId();
+    printf("%d | ",m_ListBrand.count());
+    Brand& l_Brand = m_ListBrand.selectOne();
+    printf("%d\n",m_ListBrand.count());
+    l_Brand.setName("bidou");
+
+    int& l_id = l_Brand.getId(); // Récupération de l'id, attention l_id est la même variable que le return de getId();
     printf("l_id=%d\n", l_id);
     l_id = 5;
-    printf("m_ListBrand[0].getId()=%d\n\n", l_id = m_ListBrand[0].getId());
+    printf("l_Brand.getId()=%d\n\n", l_id = l_Brand.getId());
+}
+
+void App::running()
+{
+
+}
+
+void App::closing()
+{
+
 }
