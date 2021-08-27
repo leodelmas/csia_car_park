@@ -37,6 +37,7 @@ private:
     Vector<OptionCar, MAX_OPTION_CAR> m_ListOptionCar;
     Vector<Placement, MAX_PLACEMENT> m_ListPlacement;
     Vector<Seller, MAX_SELLER> m_ListSeller;
+    Vector<Transaction, MAX_TRANSACTION> m_ListTransaction;
     Bdd m_Bdd;
     
 public:
