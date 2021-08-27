@@ -14,6 +14,7 @@ App::~App(){}
 
 void App::launch()
 {
+    assert(false);
     printf("%d | ",m_ListBrand.count());
     Brand& l_Brand = m_ListBrand.selectOne();
     printf("%d\n",m_ListBrand.count());

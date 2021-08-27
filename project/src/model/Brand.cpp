@@ -21,6 +21,7 @@ int& Brand::getId()
 }
 void Brand::setId(int p_pId)
 {
+
     //TODO: Créer un système d'assert
     m_Id = p_pId;
 }

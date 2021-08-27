@@ -7,6 +7,7 @@
 #pragma once
 
 #include <DEFINITIONS.h>
+#include <Assert.h>
 #include <Brand.h>
 #include <Car.h>
 #include <Customer.h>
