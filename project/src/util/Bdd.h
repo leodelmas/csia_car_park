@@ -14,8 +14,8 @@
 #include <Brand.h>
 #include <DEFINITIONS.h>
 
-#define HOST 	"192.168.0.29"
-#define USER 	"root"
+#define HOST 	"192.168.0.87"
+#define USER 	"sylvain"
 #define PASSWD 	"sylvain"
 #define DB	"csia_car_park"
 #define PORT	3306
