@@ -21,8 +21,6 @@ int& Brand::getId()
 }
 void Brand::setId(int p_pId)
 {
-
-    //TODO: Créer un système d'assert
     m_Id = p_pId;
 }
 //Name
@@ -32,6 +30,5 @@ std::string& Brand::getName()
 }
 void Brand::setName(std::string p_pName)
 {
-    //TODO: Créer un système d'assert
     m_Name = p_pName;
 }
