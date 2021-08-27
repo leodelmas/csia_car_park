@@ -23,13 +23,6 @@ public:
 private:
     void displayLine(const char *text);
     void displayCarConcatProp(Car& car);
-    Vector<Car, MAX_CAR>* m_ListCar;
-    Vector<Customer, MAX_CUSTOMER>* m_ListCustomer;
-    Vector<Seller, MAX_SELLER>* m_ListSeller;
-    std::stringstream m_String;
-
-public:
-    void displayNavigation();
     void displayCarsSoldList();
     void displayCarsAvailableList();
     void displayCarsList();
@@ -39,4 +32,17 @@ public:
     void displayAddCarForm();
     void displayTransactionDetails();
     void displayInitTransactionForm();
+    void displayBrandList();
+    void displayModelList(int p_BrandId);
+    void displayFuelList();
+    Vector<Car, MAX_CAR>* m_ListCar;
+    Vector<Customer, MAX_CUSTOMER>* m_ListCustomer;
+    Vector<Seller, MAX_SELLER>* m_ListSeller;
+    Vector<Brand, MAX_BRAND>* m_ListBrand;
+    Vector<Fuel, MAX_FUEL>* m_ListFuel;
+    Vector<Model, MAX_MODEL>* m_ListModel;
+    std::stringstream m_String;
+
+public:
+    void displayMain();
 };
