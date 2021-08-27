@@ -39,7 +39,7 @@ public:
 
     void clear_all();
 
-    class get_types();
+    const char* get_types();
 private:
     T m_Vector[N];
     int m_Count;
@@ -138,7 +138,7 @@ void Vector<T, N>::clear_all()
 }
 
 template<class T, int N>
-class Vector<T, N>::get_types()
+const char* Vector<T, N>::get_types()
 {
-    return T;
+    return typeid(T).name();
 }

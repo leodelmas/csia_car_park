@@ -14,8 +14,8 @@ App::~App(){}
 
 void App::launch()
 {
-    assert(false);
     printf("%d | ",m_ListBrand.count());
+    std::cout << m_ListBrand.get_types() << std::endl;
     Brand& l_Brand = m_ListBrand.selectOne();
     printf("%d\n",m_ListBrand.count());
     l_Brand.setName("bidou");
