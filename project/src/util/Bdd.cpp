@@ -11,7 +11,7 @@
 
 Bdd::Bdd() {}
 
-Bdd::~Bdd(){}
+Bdd::~Bdd() {}
 
 //Connexion
 void Bdd::setConnexion()
@@ -31,11 +31,11 @@ void Bdd::setConnexion()
     }
     else
     {
-	std::cout << "Connecté" << std::endl;
+        std::cout << "Connecté" << std::endl;
     }
 }
 //Name
-void Bdd::fillVector(Vector<Brand, MAX_BRAND>* p_pVector)
+void Bdd::fillVector(Vector<Brand, MAX_BRAND> *p_pVector)
 {
     assert(NULL != p_pVector);
 }

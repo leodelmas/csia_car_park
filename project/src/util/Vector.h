@@ -33,6 +33,8 @@ public:
 
     T& selectOne();
 
+    T& getOneElement(int p_Id);
+
     bool isEmpty() const;
 
     bool isFull() const;
@@ -112,6 +114,12 @@ T& Vector<T, N>::selectOne()
 {
     // Assert isfull = true
     return m_Vector[m_Count++];
+}
+
+template<class T, int N>
+T& Vector<T, N>::getOneElement(int p_Id)
+{
+    return m_Vector[p_Id];
 }
 
 template<class T, int N>
