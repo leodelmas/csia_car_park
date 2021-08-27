@@ -39,6 +39,7 @@ public:
 
     void clear_all();
 
+    class get_types();
 private:
     T m_Vector[N];
     int m_Count;
@@ -134,4 +135,10 @@ void Vector<T, N>::clear_all()
         m_Vector[i] = m_Base;
     }
     m_Count = 0;
+}
+
+template<class T, int N>
+class Vector<T, N>::get_types()
+{
+    return T;
 }
