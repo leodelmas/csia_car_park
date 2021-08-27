@@ -14,6 +14,12 @@
 #include <Brand.h>
 #include <DEFINITIONS.h>
 
+#define HOST 	"192.168.0.29"
+#define USER 	"root"
+#define PASSWD 	"sylvain"
+#define DB	"csia_car_park"
+#define PORT	3306
+
 
 class Bdd
 {
@@ -22,7 +28,7 @@ public:
     ~Bdd();
 
     //Connexion
-    void setConnexion(const char *host, const char *user,const char *passwd,const char *db,unsigned int port,const char *unix_socket,unsigned long client_flag);
+    void setConnexion();
     //Name
     void fillVector(Vector<Brand, MAX_BRAND>* p_pVector);
 

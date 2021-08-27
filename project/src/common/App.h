@@ -18,6 +18,7 @@
 #include <Placement.h>
 #include <Seller.h>
 #include <Vector.h>
+#include <Bdd.h>
 
 class App
 {
@@ -36,6 +37,7 @@ private:
     Vector<OptionCar, MAX_OPTION_CAR> m_ListOptionCar;
     Vector<Placement, MAX_PLACEMENT> m_ListPlacement;
     Vector<Seller, MAX_SELLER> m_ListSeller;
+    Bdd m_Bdd;
     
 public:
     void launch();

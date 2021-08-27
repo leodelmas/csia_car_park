@@ -14,16 +14,16 @@ App::~App(){}
 
 void App::launch()
 {
-    printf("%d | ",m_ListBrand.count());
-    std::cout << m_ListBrand.get_types() << std::endl;
-    Brand& l_Brand = m_ListBrand.selectOne();
-    printf("%d\n",m_ListBrand.count());
-    l_Brand.setName("bidou");
+    m_Bdd.setConnexion();
+    //printf("%d | ",m_ListBrand.count());
+    //Brand& l_Brand = m_ListBrand.selectOne();
+    //printf("%d\n",m_ListBrand.count());
+    //l_Brand.setName("bidou");
 
-    int& l_id = l_Brand.getId(); // Récupération de l'id, attention l_id est la même variable que le return de getId();
-    printf("l_id=%d\n", l_id);
-    l_id = 5;
-    printf("l_Brand.getId()=%d\n\n", l_id = l_Brand.getId());
+    //int& l_id = l_Brand.getId(); // Récupération de l'id, attention l_id est la même variable que le return de getId();
+    //printf("l_id=%d\n", l_id);
+    //l_id = 5;
+    //printf("l_Brand.getId()=%d\n\n", l_id = l_Brand.getId());
 }
 
 void App::running()

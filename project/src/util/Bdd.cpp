@@ -14,11 +14,17 @@ Bdd::Bdd() {}
 Bdd::~Bdd(){}
 
 //Connexion
-void Bdd::setConnexion(const char *host, const char *user,const char *passwd,const char *db,unsigned int port,const char *unix_socket,unsigned long client_flag)
+void Bdd::setConnexion()
 {
-    if (!mysql_real_connect(&m_Mysql,host,user,passwd,db,port,unix_socket,client_flag))
+    std::cout << HOST << std::endl;
+    if (!mysql_real_connect(&m_Mysql,HOST,USER,PASSWD,DB,PORT,NULL,0))
     {
         std::cout << "Impossible de se connecter à la base de donnée" << std::endl;
+	std::cout << mysql_error(&m_Mysql) << std::endl;
+    }
+    else
+    {
+	std::cout << "Connecté" << std::endl;
     }
 }
 //Name
