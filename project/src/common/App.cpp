@@ -15,6 +15,7 @@ App::~App(){}
 void App::launch()
 {
     m_Bdd.setConnexion();
+    m_Bdd.fillBrand(m_ListBrand);
     //printf("%d | ",m_ListBrand.count());
     //Brand& l_Brand = m_ListBrand.selectOne();
     //printf("%d\n",m_ListBrand.count());

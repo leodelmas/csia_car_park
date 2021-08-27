@@ -28,10 +28,15 @@ public:
 
     //Connexion
     void setConnexion();
-    //Name
-    void fillVector(Vector<Brand, MAX_BRAND> *p_pVector);
+    //Requête
+    void execReq(const char* p_Req);
+    //Brand
+    void fillBrand(Vector<Brand, MAX_BRAND>& p_pVector);
 
 private:
     //Déclaration d'une variable de type MYSQL
-    MYSQL m_Mysql;
+    MYSQL* m_pMysql; 
+    MYSQL_RES* m_pReq;
+    MYSQL_ROW m_Row;
+    std::string m_Req;
 };
