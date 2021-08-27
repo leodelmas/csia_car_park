@@ -40,19 +40,26 @@ void Console::displayNavigation()
                 displayCarsList();
                 break;
             case 4:
-                displa
+                displayCustomersList();
                 break;
             case 5:
+                displaySellersList();
                 break;
             case 6:
+                displayTransactionsList();
                 break;
             case 7:
+                displayAddCarForm();
                 break;
             case 8:
+                displayTransactionDetails();
                 break;
             case 9:
+                displayAddCarForm();
                 break;
             case 10:
+                displayLine("Bye bye XOXO ! ;D");
+                exit;
                 break;
             default:
                 displayLine("Commande inconnue ! :/");
@@ -68,8 +75,8 @@ void Console::displayLine(const char *text)
 
 void Console::displayCarConcatProp(Car& car)
 {
-    m_String =  "Vehicule " + i + ' ' + car.getModel()->getBrand()->getName() + ' ' + car.getModel()->getLabel() + " de " + car.getReleaseDate().tm_year;
-    displayLine(m_String);
+    m_String << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate().tm_year;
+    displayLine(m_String.str().c_str());
 }
 
 void Console::displayCarsSoldList()
@@ -104,11 +111,19 @@ void Console::displayCarsList()
 void Console::displayCustomersList()
 {
     displayLine("--- LISTE DES CLIENTS ---");
+    for (int i; i < m_ListCustomer->count(); i++) {
+        Customer& customer = m_ListCustomer->getOneElement(i);
+        m_String << "Client " << customer.getId() << " : " << customer.getLastName() << " " << customer.getFirstName();
+    }
 }
 
 void Console::displaySellersList()
 {
     displayLine("--- LISTE DES VENDEURS ---");
+    for (int i; i < m_ListSeller->count(); i++) {
+        Seller& seller = m_ListSeller->getOneElement(i);
+        m_String << "Vendeur " << seller.getId() << " : " << seller.getLastName() << " " << seller.getFirstName();
+    }
 }
 
 void Console::displayTransactionsList()
@@ -119,6 +134,7 @@ void Console::displayTransactionsList()
 void Console::displayAddCarForm()
 {
     displayLine("--- AJOUTER UNE VOITURE ---");
+    
 }
 
 void Console::displayTransactionDetails()

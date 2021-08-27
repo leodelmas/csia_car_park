@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include <sstream>
 #include <Assert.h>
 #include <Car.h>
 #include <Customer.h>
@@ -25,7 +26,7 @@ private:
     Vector<Car, MAX_CAR>* m_ListCar;
     Vector<Customer, MAX_CUSTOMER>* m_ListCustomer;
     Vector<Seller, MAX_SELLER>* m_ListSeller;
-    std::string m_String;
+    std::stringstream m_String;
 
 public:
     void displayNavigation();
