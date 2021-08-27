@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <mysql/mysql.h>
-#include <mysql.h>
 #include <Vector.h>
 #include <Assert.h>
 
