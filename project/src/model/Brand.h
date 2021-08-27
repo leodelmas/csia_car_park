@@ -7,7 +7,6 @@
 #pragma once
 
 #include <string>
-#include <Assert.h>
 
 class Brand
 {
