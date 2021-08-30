@@ -24,7 +24,7 @@ void Fuel::setId(int p_Iid)
     m_Id = p_Iid;
 }
 //Label
-const char*& Fuel::getLabel()
+const char* Fuel::getLabel()
 {
     return m_Label;
 }
