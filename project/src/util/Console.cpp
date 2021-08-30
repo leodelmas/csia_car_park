@@ -109,8 +109,7 @@ void Console::display_Line(const char *text)
 
 void Console::display_CarConcatProp(Car& car)
 {
-    m_String << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate().tm_year;
-    display_Line(m_String.str().c_str());
+	std::cout << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate().tm_year << std::endl;
 }
 
 void Console::display_CarsSoldList()
@@ -147,8 +146,7 @@ void Console::display_CustomersList()
     display_Line("--- LISTE DES CLIENTS ---");
     for (int i = 0; i < m_pListCustomer->count(); i++) {
         Customer& customer = m_pListCustomer->getOneElement(i);
-        m_String << "Client " << customer.getId() << " : " << customer.getLastName() << " " << customer.getFirstName();
-        display_Line(m_String.str().c_str());
+	std::cout << "Client " << customer.getId() << " : " << customer.getLastName() << " " << customer.getFirstName() << std::endl;
     }
 }
 
@@ -157,8 +155,7 @@ void Console::display_SellersList()
     display_Line("--- LISTE DES VENDEURS ---");
     for (int i = 0; i < m_pListSeller->count(); i++) {
         Seller& seller = m_pListSeller->getOneElement(i);
-        m_String << "Vendeur " << seller.getId() << " : " << seller.getLastName() << " " << seller.getFirstName();
-        display_Line(m_String.str().c_str());
+	std::cout << "Vendeur " << seller.getId() << " : " << seller.getLastName() << " " << seller.getFirstName() << std::endl;
     }
 }
 
@@ -208,7 +205,7 @@ void Console::display_BrandList()
     display_Line("--- LISTE DES MARQUES ---");
     for (int i = 0; i < m_pListBrand->count(); i++) {
         Brand& brand = m_pListBrand->getOneElement(i);
-        m_String << "Marque " << brand.getId() << " : " << brand.getName();
+	std::cout << "Marque " << brand.getId() << " : " << brand.getName() << std::endl;
     }
 }
 
@@ -217,7 +214,7 @@ void Console::display_ModelList(int p_BrandId)
     display_Line("--- LISTE DES MARQUES ---");
     for (int i = 0; i < m_pListModel->count(); i++) {
         Model& model = m_pListModel->getOneElement(i);
-        m_String << "Modèle " << model.getId() << " : " << model.getLabel();
+	std::cout << "Modèle " << model.getId() << " : " << model.getLabel() << std::endl;
     }
 }
 
@@ -226,6 +223,6 @@ void Console::display_FuelList()
     display_Line("--- LISTE DES ENERGIES ---");
     for (int i = 0; i < m_pListFuel->count(); i++) {
         Fuel& fuel = m_pListFuel->getOneElement(i);
-        m_String << "Energie " << fuel.getId() << " : " << fuel.getLabel();
+	std::cout << "Energie " << fuel.getId() << " : " << fuel.getLabel() << std::endl;
     }
 }

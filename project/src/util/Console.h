@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <sstream>
 #include <Assert.h>
 #include <Car.h>
 #include <Customer.h>
@@ -36,8 +35,6 @@ private:
     void display_BrandList();
     void display_ModelList(int p_BrandId);
     void display_FuelList();
-
-    std::stringstream m_String;
 
     Vector<Brand, MAX_BRAND>* m_pListBrand;
     Vector<Car, MAX_CAR>* m_pListCar;
