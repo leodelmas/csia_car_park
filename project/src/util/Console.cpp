@@ -153,6 +153,10 @@ void Console::display_SellersList()
 void Console::display_TransactionsList()
 {
     std::cout << "--- LISTE DES VENTES ---" << std::endl;
+    for (int i = 0; i < m_pListTransaction->count(); i++) {
+        Transaction& transaction = m_pListTransaction->getOneElement(i);
+        std::cout << "Vente " << transaction.getId() << " : " << transaction.getCustomer()->getFirstName() << " " << transaction.getCustomer()->getLastName() << " - " << transaction.getCar()->getModel()->getBrand()->getName() << " " << transaction.getCar()->getModel()->getLabel() << std::endl;
+    }
 }
 
 void Console::display_AddCarForm()
@@ -160,6 +164,7 @@ void Console::display_AddCarForm()
     int brandId;
     int modelId;
     int motorId;
+    float consumption;
     int kilometer;
     char color[255];
     int releaseDate;
@@ -177,6 +182,9 @@ void Console::display_AddCarForm()
     std::cout << "Entrer l'id du moteur :" << std::endl;
     display_MotorList();
     std::cin >> motorId;
+
+    std::cout << "Entrer la consommation : nombre de litres pour 100kms (L/100KM) :" <<std::endl;
+    std::cin >> consumption;
 
     std::cout << "Entrer le nombre de km :" << std::endl;
     std::cin >> kilometer;
@@ -197,7 +205,19 @@ void Console::display_AddCarForm()
 
 void Console::display_TransactionDetails()
 {
+    int transactionId;
+
 	std::cout << "--- AFFICHER LES DETAILS D'UNE VENTE ---" << std::endl;
+    display_TransactionsList();
+
+    std::cout << "Entrez l'id de la vente :";
+    std::cin >> transactionId;
+
+    Transaction& transaction = m_pListTransaction->getOneElement(transactionId);
+    std::cout << "--- DETAILS DE LA VENTE N°" << transaction.getId() << " ---" << std::endl;
+    std::cout << "Acheteur : " << transaction.getCustomer()->getFirstName() << " " << transaction.getCustomer()->getLastName() << " (" << transaction.getCustomer()->getEmail() << ")" << std::endl;
+    std::cout << "Vendeur : " << transaction.getSeller()->getFirstName() << " " << transaction.getSeller()->getLastName() << std::endl;
+    std::cout << "Voiture : " << transaction.getCar()->getModel()->getBrand()->getName() << " " << transaction.getCar()->getModel()->getLabel();
 }
 
 void Console::display_InitTransactionForm()
