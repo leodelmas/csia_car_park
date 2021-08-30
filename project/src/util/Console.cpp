@@ -24,9 +24,10 @@ void Console::display_Main()
 		std::cout << "4. Afficher la liste des vendeurs" << std::endl;
 		std::cout << "5. Afficher la liste des ventes" << std::endl;
 		std::cout << "6. Ajouter un véhicule" << std::endl;
-		std::cout << "7. Détails vente d'un véhicule" << std::endl;
-		std::cout << "8. Vente d'un véhicule" << std::endl;
-		std::cout << "9. Quitter\n" << std::endl;
+        std::cout << "7. Ajouter un client" << std::endl;
+		std::cout << "8. Détails vente d'un véhicule" << std::endl;
+		std::cout << "9. Vente d'un véhicule" << std::endl;
+		std::cout << "10. Quitter\n" << std::endl;
 		
 		std::cout << "Votre choix: ";
         std::cin >> choice;
@@ -54,12 +55,15 @@ void Console::display_Main()
                 display_AddCarForm();
                 break;
             case 7:
-                display_TransactionDetails();
+                display_AddCustomerForm();
                 break;
             case 8:
-                display_AddCarForm();
+                display_TransactionDetails();
                 break;
             case 9:
+                display_AddCarForm();
+                break;
+            case 10:
                 exit;
                 break;
             default:
@@ -109,7 +113,7 @@ void Console::set_Vector(
 
 void Console::display_CarConcatProp(Car& car)
 {
-	std::cout << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate().tm_year << std::endl;
+	std::cout << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate() << std::endl;
 }
 
 void Console::display_CarsAvailableList()
@@ -222,7 +226,26 @@ void Console::display_TransactionDetails()
 
 void Console::display_InitTransactionForm()
 {
+    int carId;
+    int sellerId;
+    int customerId;
 
+    std::cout << "--- VENDRE UNE VOITURE ---" << std::endl;
+    std::cout << "Entrez l'id de la voiture :" << std::endl;
+    display_CarsAvailableList();
+    std::cin >> carId;
+
+    std::cout << "Entrez l'id du vendeur :" << std::endl;
+    display_SellersList();
+    std::cin >> sellerId;
+
+    std::cout << "Entrez l'id du client :" << std::endl;
+    display_CustomersList();
+    std::cin >> customerId;
+
+    // TODO: Enregistrer la transac en BDD
+
+    std::cout << "Ajout de la vente réussi !" << std::endl;
 }
 
 void Console::display_BrandList()
@@ -236,7 +259,7 @@ void Console::display_BrandList()
 
 void Console::display_ModelList(int p_BrandId)
 {
-    // TODO : récupérer les modèles de la marque
+    // TODO: récupérer les modèles de la marque
 	std::cout << "--- LISTE DES MARQUES ---" << std::endl;
     for (int i = 0; i < m_pListModel->count(); i++) {
         Model& model = m_pListModel->getOneElement(i);
@@ -249,6 +272,39 @@ void Console::display_MotorList()
 	std::cout << "--- LISTE DES MOTEURS ---" << std::endl;
     for (int i = 0; i < m_pListMotor->count(); i++) {
         Motor& motor = m_pListMotor->getOneElement(i);
-	    std::cout << "Energie " << motor.getId() << " : " << motor.getLabel() << std::endl;
+	    std::cout << "Moteur " << motor.getId() << " : " << motor.getName() << std::endl;
     }
+}
+
+void Console::display_AddCustomerForm()
+{
+    char firstname[255];
+    char lastname[255];
+    char email[255];
+    char phone[10];
+    char gender[1];
+    char address[255];
+
+    std::cout << "--- AJOUTER UN CLIENT ---" << std::endl;
+    std::cout << "Entre le prénom du client :" << std::endl;
+    std::cin >> firstname;
+
+    std::cout << "Entre le nom du client :" << std::endl;
+    std::cin >> lastname;
+
+    std::cout << "Entre l'email du client :" << std::endl;
+    std::cin >> email;
+
+    std::cout << "Entre le téléphone du client :" << std::endl;
+    std::cin >> phone;
+
+    std::cout << "Entre le genre du client (M/F) :" << std::endl;
+    std::cin >> gender;
+
+    std::cout << "Entre l'adresse du client :" << std::endl;
+    std::cin >> address;
+
+    // TODO: Enregistrement en bdd
+
+    std::cout << "Ajout du client réussi !" << std::endl;
 }

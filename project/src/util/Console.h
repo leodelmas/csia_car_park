@@ -33,6 +33,7 @@ private:
     void display_BrandList();
     void display_ModelList(int p_BrandId);
     void display_MotorList();
+    void display_AddCustomerForm();
 
     Vector<Brand, MAX_BRAND>* m_pListBrand;
     Vector<Car, MAX_CAR>* m_pListCar;
