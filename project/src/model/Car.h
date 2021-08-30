@@ -13,6 +13,8 @@
 #include <Motor.h>
 #include <Model.h>
 #include <OptionCar.h>
+#include <Vector.h>
+#include <Transaction.h>
 
 class Car
 {
@@ -50,6 +52,8 @@ public:
     //ListOptionCar
     OptionCar** getListOptionCar();
     void setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR]);
+    //IsSold
+    bool isSold(Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction);
 
 private:
     int m_Id;

@@ -10,7 +10,6 @@
 #include <Seller.h>
 #include <Customer.h>
 
-
 class Transaction
 {
 public:

@@ -117,17 +117,17 @@ void Console::display_CarsSoldList()
 {
     // TODO: Remplacer par une liste de voitures vendues
     display_Line("--- LISTE DES VOITURES VENDUES ---");
-    for (int i; i < m_pListCar->count(); i++) {
-        Car& car = m_pListCar->getOneElement(i);
-        display_CarConcatProp(car);
+    for (int i = 0; i < m_pListCar->count(); i++) {
+        Car& l_Car = m_pListCar->getOneElement(i);
+        display_CarConcatProp(l_Car);
     }
 }
 
 void Console::display_CarsAvailableList()
 {
     // TODO: Remplacer par une liste de voitures dispos
-    display_Line("--- LISTE DES VOITURES ---");
-    for (int i; i < m_pListCar->count(); i++) {
+    display_Line("--- LISTE DES VOITURES DISPONIBLES ---");
+    for (int i = 0; i < m_pListCar->count(); i++) {
         Car& car = m_pListCar->getOneElement(i);
         display_CarConcatProp(car);
     }
@@ -136,7 +136,7 @@ void Console::display_CarsAvailableList()
 void Console::display_CarsList()
 {
     display_Line("--- LISTE DES VOITURES ---");
-    for (int i; i < m_pListCar->count(); i++) {
+    for (int i = 0; i < m_pListCar->count(); i++) {
         Car& car = m_pListCar->getOneElement(i);
         display_CarConcatProp(car);
     }
@@ -145,7 +145,7 @@ void Console::display_CarsList()
 void Console::display_CustomersList()
 {
     display_Line("--- LISTE DES CLIENTS ---");
-    for (int i; i < m_pListCustomer->count(); i++) {
+    for (int i = 0; i < m_pListCustomer->count(); i++) {
         Customer& customer = m_pListCustomer->getOneElement(i);
         m_String << "Client " << customer.getId() << " : " << customer.getLastName() << " " << customer.getFirstName();
         display_Line(m_String.str().c_str());
@@ -155,7 +155,7 @@ void Console::display_CustomersList()
 void Console::display_SellersList()
 {
     display_Line("--- LISTE DES VENDEURS ---");
-    for (int i; i < m_pListSeller->count(); i++) {
+    for (int i = 0; i < m_pListSeller->count(); i++) {
         Seller& seller = m_pListSeller->getOneElement(i);
         m_String << "Vendeur " << seller.getId() << " : " << seller.getLastName() << " " << seller.getFirstName();
         display_Line(m_String.str().c_str());
@@ -206,7 +206,7 @@ void Console::display_InitTransactionForm()
 void Console::display_BrandList()
 {
     display_Line("--- LISTE DES MARQUES ---");
-    for (int i; i < m_pListBrand->count(); i++) {
+    for (int i = 0; i < m_pListBrand->count(); i++) {
         Brand& brand = m_pListBrand->getOneElement(i);
         m_String << "Marque " << brand.getId() << " : " << brand.getName();
     }
@@ -215,7 +215,7 @@ void Console::display_BrandList()
 void Console::display_ModelList(int p_BrandId)
 {
     display_Line("--- LISTE DES MARQUES ---");
-    for (int i; i < m_pListModel->count(); i++) {
+    for (int i = 0; i < m_pListModel->count(); i++) {
         Model& model = m_pListModel->getOneElement(i);
         m_String << "Modèle " << model.getId() << " : " << model.getLabel();
     }
@@ -224,7 +224,7 @@ void Console::display_ModelList(int p_BrandId)
 void Console::display_FuelList()
 {
     display_Line("--- LISTE DES ENERGIES ---");
-    for (int i; i < m_pListFuel->count(); i++) {
+    for (int i = 0; i < m_pListFuel->count(); i++) {
         Fuel& fuel = m_pListFuel->getOneElement(i);
         m_String << "Energie " << fuel.getId() << " : " << fuel.getLabel();
     }
