@@ -13,8 +13,6 @@
 #include <Motor.h>
 #include <Model.h>
 #include <OptionCar.h>
-#include <Vector.h>
-#include <Transaction.h>
 
 class Car
 {
@@ -37,6 +35,9 @@ public:
     //IsReserved
     bool& getIsReserved();
     void setIsReserved(bool p_IsReserved);
+    //IsSold
+    bool& getIsSold();
+    void setIsSold(bool p_IsSold);
     //ReleaseDate
     tm& getReleaseDate();
     void setReleaseDate(int p_Year, int p_Month, int p_Day);
@@ -52,8 +53,6 @@ public:
     //ListOptionCar
     OptionCar** getListOptionCar();
     void setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR]);
-    //IsSold
-    bool isSold(Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction);
 
 private:
     int m_Id;
@@ -61,6 +60,7 @@ private:
     float m_Consumption;
     std::string m_Color;
     bool m_IsReserved;
+    bool m_IsSold;
     tm m_ReleaseDate;
     Placement* m_pPlacement;
     Motor* m_pMotor;

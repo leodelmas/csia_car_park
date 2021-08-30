@@ -69,8 +69,16 @@ bool& Car::getIsReserved()
 }
 void Car::setIsReserved(bool p_IsReserved)
 {
-    //TODO: Créer un système d'assert
     m_IsReserved = p_IsReserved;
+}
+//IsSold
+bool& Car::getIsSold()
+{
+    return m_IsSold;
+}
+void Car::setIsSold(bool p_IsSold)
+{
+    m_IsSold = p_IsSold;
 }
 //ReleaseDate
 tm& Car::getReleaseDate()
@@ -120,17 +128,4 @@ void Car::setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR])
 {
     //TODO: Créer un système d'assert
     m_pListOptionCar = p_pListOptionCar;
-}
-
-bool Car::isSold(Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction)
-{
-    bool l_IsSold = false;
-
-    for (int i = 0; i < p_pListTransaction->count(); i++)
-    {
-        Transaction& l_Transaction = p_pListTransaction->getOneElement(i);
-	l_IsSold = (this->getId() == l_Transaction.getCar()->getId());
-    }
-
-    return l_IsSold;
 }

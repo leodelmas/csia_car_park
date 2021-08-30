@@ -7,8 +7,6 @@
 #include <iostream>
 #include <App.h>
 
-using namespace std;
-
 static App l_app;
 
 int main()
