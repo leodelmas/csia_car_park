@@ -7,6 +7,8 @@
 #include <Bdd.h>
 #include <string.h>
 #include <iostream>
+#include <cstdio>
+
 Bdd::Bdd():
     m_pReq(NULL)
     ,m_Req()
@@ -79,7 +81,7 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
      	l_car.setConsumption(atoi(m_Row[2]));
      	l_car.setColor(m_Row[3]);
      	l_car.setIsReserved(m_Row[4]);
-     	l_car.setReleaseDate(/*Year*/0, /*Month*/0, /*Day*/0);
+     	l_car.setReleaseDate(atoi(m_Row[5]));
      // A faire crée dans le vector récupere un type de vector par id
      for (int i = 0; i < p_pVectorPlacement.count(); i++){
          Placement& l_Placement = p_pVectorPlacement.getOneElement(i);
@@ -102,25 +104,8 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
 }
 
 void Bdd::insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price){
-    char Vl_requete[100] = "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`) VALUES (";     
-    strcat(Vl_requete, std::to_string(p_kilometer)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_consumption)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_color)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_isReserved)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_sellDate)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_idPlacement)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_idMotor)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_idModel)).c_str());
-    strcat(Vl_requete, ",");
-    strcat(Vl_requete, std::to_string(p_price)).c_str());
-    strcat(Vl_requete, ")");
+    char Vl_requete[255] = "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`) VALUES (";     
+    sprintf(Vl_requete, "%d,%f,'%s',%d,%d,%d,%d,%d,%d)", p_kilometer,p_consumption,p_color,p_isReserved,p_sellDate,p_idPlacement,p_idMotor,p_idModel,p_price);
     execReq(Vl_requete);
 }
 //Customer

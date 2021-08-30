@@ -79,6 +79,6 @@ Fuel* Motor::getFuel()
 }
 void Motor::setFuel(Fuel* p_pFuel)
 {
-    dbgAssert(NULL != p_pFuel);
+    assert(NULL != p_pFuel);
     m_pFuel = p_pFuel;
 }

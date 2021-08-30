@@ -16,7 +16,7 @@ Car::Car():
     m_pPlacement(NULL),
     m_pMotor(NULL),
     m_pModel(NULL),
-    m_Price(0.0f);
+    m_Price(0.0f)
 {
 }
 
