@@ -78,6 +78,12 @@ void Console::display_Main()
     } while (choice != 10);
 }
 
+void Console::registerBdd(Bdd* p_pBdd)
+{
+	assert(NULL != p_pBdd);
+	m_pBdd = p_pBdd;
+}
+
 void Console::set_Vector(
     Vector<Brand, MAX_BRAND>* p_pListBrand,
     Vector<Car, MAX_CAR>* p_pListCar,
@@ -111,9 +117,9 @@ void Console::set_Vector(
     m_pListTransaction	= p_pListTransaction;
 }
 
-void Console::display_CarConcatProp(Car& car)
+void Console::display_CarConcatProp(Car& p_Car)
 {
-	std::cout << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate() << std::endl;
+	std::cout << " Vehicule " << p_Car.getId() << " " << p_Car.getModel()->getBrand()->getName() << " " << p_Car.getModel()->getLabel() << " de " << p_Car.getReleaseDate() << std::endl;
 }
 
 void Console::display_CarsAvailableList()
@@ -165,44 +171,45 @@ void Console::display_TransactionsList()
 
 void Console::display_AddCarForm()
 {
-    int brandId;
-    int modelId;
-    int motorId;
-    float consumption;
-    int kilometer;
-    char color[255];
-    int releaseDate;
-    float price;
+    int l_BrandId;
+    int l_ModelId;
+    int l_MotorId;
+    float l_Consumption;
+    int l_Kilometer;
+    char* l_Color;
+    int l_ReleaseDate;
+    float l_Price;
 
     std::cout << "--- AJOUTER UNE VOITURE ---" << std::endl;
 	std::cout << "Entrer l'id de la marque :" << std::endl;
     display_BrandList();
-    std::cin >> brandId;
+    std::cin >> l_BrandId;
 
 	std::cout << "Entrer l'id du modèle :" << std::endl;
-    display_ModelList(brandId);
-    std::cin >> modelId;
+    display_ModelList(l_BrandId);
+    std::cin >> l_ModelId;
 
     std::cout << "Entrer l'id du moteur :" << std::endl;
     display_MotorList();
-    std::cin >> motorId;
+    std::cin >> l_MotorId;
 
     std::cout << "Entrer la consommation : nombre de litres pour 100kms (L/100KM) :" <<std::endl;
-    std::cin >> consumption;
+    std::cin >> l_Consumption;
 
     std::cout << "Entrer le nombre de km :" << std::endl;
-    std::cin >> kilometer;
+    std::cin >> l_Kilometer;
 
 	std::cout << "Entrer la couleur :" << std::endl;
-    std::cin >> color;
+    std::cin >> l_Color;
 
 	std::cout << "Entrer l'année :" << std::endl;
-    std::cin >> releaseDate;
+    std::cin >> l_ReleaseDate;
 	
 	std::cout << "Entrer le prix de vente :" << std::endl;
-    std::cin >> price;
+    std::cin >> l_Price;
 
-    // TODO: Appel à BDD pour enregistrer
+	m_pBdd->insertCar(l_Kilometer, l_Consumption, l_Color, false, l_ReleaseDate, 1, l_MotorId, l_ModelId, l_Price);
+	m_pBdd->fillCar(*m_pListCar, *m_pListPlacement, *m_pListMotor, *m_pListModel);
 
 	std::cout << "Ajout du véhicule réussi !" << std::endl;
 }
@@ -242,8 +249,6 @@ void Console::display_InitTransactionForm()
     std::cout << "Entrez l'id du client :" << std::endl;
     display_CustomersList();
     std::cin >> customerId;
-
-    // TODO: Enregistrer la transac en BDD
 
     std::cout << "Ajout de la vente réussi !" << std::endl;
 }

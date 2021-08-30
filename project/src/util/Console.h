@@ -12,6 +12,7 @@
 #include <Seller.h>
 #include <Vector.h>
 #include <Transaction.h>
+#include <Bdd.h>
 
 class Console
 {
@@ -21,7 +22,7 @@ public:
     ~Console();
 
 private:
-    void display_CarConcatProp(Car& car);
+    void display_CarConcatProp(Car& p_Car);
     void display_CarsAvailableList();
     void display_CarsList();
     void display_CustomersList();
@@ -45,6 +46,8 @@ private:
     Vector<Seller, MAX_SELLER>* m_pListSeller;
     Vector<Transaction, MAX_TRANSACTION>* m_pListTransaction;
 
+	Bdd* m_pBdd;
+
 public:
     void display_Main();
     void set_Vector(
@@ -58,4 +61,5 @@ public:
         Vector<Seller, MAX_SELLER>* p_pListSeller,
         Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction
     );
+	void registerBdd(Bdd* p_pBdd);
 };

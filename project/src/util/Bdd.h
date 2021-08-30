@@ -29,7 +29,7 @@ public:
     //Brand
     void fillBrand(Vector<Brand, MAX_BRAND>& p_pVector);
     //Car
-    void fillCar(Vector<Car, MAX_CAR>& p_pVector,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor);
+    void fillCar(Vector<Car, MAX_CAR>& p_pVector,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor, Vector<Model, MAX_MODEL>& p_pMVectorModel);
     //Fuel
     void fillFuel(Vector<Fuel, MAX_FUEL>& p_pVector);
     //Model

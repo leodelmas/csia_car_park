@@ -59,7 +59,6 @@ void Bdd::fillBrand(Vector<Brand, MAX_BRAND>& p_pVector)
 	 	Brand& l_Brand = p_pVector.selectOne();
 	 	l_Brand.setId(atoi(m_Row[0]));
 	 	l_Brand.setName(m_Row[1]);
-		std::cout << l_Brand.getName() << std::endl;
     }
 }
 
@@ -71,8 +70,10 @@ void Bdd::insertBrand(const char* p_name){
 }
 
 //CAR
-void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor)
+void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor, Vector<Model, MAX_MODEL>& p_pVectorModel)
 {
+	p_pVectorCar.clear_all();
+
     execReq("SELECT id, kilometer, consumption, color, isReserved, releaseDate, idPlacement, idMotor, idModel, price FROM car");
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
@@ -90,24 +91,33 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
         if(l_Placement.getId() == atoi(m_Row[6]))
         {
         	l_car.setPlacement(&l_Placement);
-        }
+    	}
     }
     
     for (int i = 0; i < p_pVectorMotor.count(); i++){
-         Motor& l_pMotor = p_pVectorMotor.getOneElement(i);
-         if(l_pMotor.getId() == atoi(m_Row[7]))
-         {
-             l_car.setMotor(&l_pMotor);
-         }
-     }
+        Motor& l_pMotor = p_pVectorMotor.getOneElement(i);
+        if(l_pMotor.getId() == atoi(m_Row[7]))
+        {
+        	l_car.setMotor(&l_pMotor);
+        }
+	}
+
+    for (int i = 0; i < p_pVectorModel.count(); i++){
+        Model& l_Model = p_pVectorModel.getOneElement(i);
+        if(l_Model.getId() == atoi(m_Row[8]))
+        {
+        	l_car.setModel(&l_Model);
+        }
+	}
 
      //l_car.ListOptionCar
     }
 }
 
 void Bdd::insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price){
-    char Vl_requete[255] = "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`) VALUES (";     
-    sprintf(Vl_requete, "%d,%f,'%s',%d,%d,%d,%d,%d,%d)", p_kilometer,p_consumption,p_color,p_isReserved,p_sellDate,p_idPlacement,p_idMotor,p_idModel,p_price);
+    char Vl_requete[666];     
+    sprintf(Vl_requete, "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`) VALUES (%d,%f,'%s',%d,%d,%d,%d,%d,%d)", p_kilometer,p_consumption,p_color,p_isReserved,p_sellDate,p_idPlacement,p_idMotor,p_idModel,p_price);
+	std::cout << Vl_requete << std::endl;
     execReq(Vl_requete);
 }
 //Customer

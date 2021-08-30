@@ -26,11 +26,13 @@ void App::launch()
     m_Bdd.fillOptionCar(m_ListOptionCar);
     m_Bdd.fillPlacement(m_ListPlacement);
     m_Bdd.fillSeller(m_ListSeller);
-    m_Bdd.fillCar(m_ListCar,m_ListPlacement,m_ListMotor);
+    m_Bdd.fillCar(m_ListCar,m_ListPlacement,m_ListMotor,m_ListModel);
     m_Bdd.fillTransaction(m_ListTransaction,m_ListCar,m_ListSeller,m_ListCustomer);
 
     // Console
     m_Console.set_Vector(&m_ListBrand, &m_ListCar, &m_ListCustomer, &m_ListModel, &m_ListMotor, &m_ListOptionCar, &m_ListPlacement, &m_ListSeller, &m_ListTransaction);
+	m_Console.registerBdd(&m_Bdd);
+
     running();
 }
 
