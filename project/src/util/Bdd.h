@@ -51,7 +51,7 @@ public:
     void insertBrand(const char* p_name);
 
     //Insert into Car
-    void insertCar(const char* p_name);
+    void insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price);
 private:
     //Déclaration d'une variable de type MYSQL
     MYSQL* m_pMysql; 
