@@ -83,7 +83,7 @@ int Car::getReleaseDate()
 }
 void Car::setReleaseDate(int p_Year)
 {
-   m_Year = p_Year; 
+   m_ReleaseDate = p_Year; 
 }
 //Placement
 Placement* Car::getPlacement()
