@@ -68,6 +68,12 @@ void Console::display_Main()
                 break;
             default:
 				std::cout << "Commande inconnue ! :/" << std::endl;
+				if(std::cin.fail())
+				{
+     				std::cin.clear(); 
+
+					std::cin.ignore();
+				}
                 break;
         }
     } while (choice != 10);
