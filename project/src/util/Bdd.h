@@ -50,6 +50,8 @@ public:
     //Insert into Brand
     void insertBrand(const char* p_name);
 
+    //Insert into Car
+    void insertCar(const char* p_name);
 private:
     //Déclaration d'une variable de type MYSQL
     MYSQL* m_pMysql; 

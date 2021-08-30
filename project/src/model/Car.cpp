@@ -15,7 +15,8 @@ Car::Car():
     m_ReleaseDate(),
     m_pPlacement(NULL),
     m_pMotor(NULL),
-    m_pModel(NULL)
+    m_pModel(NULL),
+    m_Price(0.0f);
 {
 }
 
@@ -122,4 +123,14 @@ void Car::setModel(Model* p_pModel)
 Vector<OptionCar, NB_OPTION_CAR>& Car::getListOptionCar()
 {
     return m_ListOptionCar;
+}
+//Price
+float& Car::getPrice()
+{
+    return m_Price;
+}
+void Car::setPrice(float p_Price)
+{
+    //TODO: Créer un système d'assert
+    m_Price = p_Price;
 }

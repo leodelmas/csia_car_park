@@ -53,6 +53,9 @@ public:
     void setModel(Model* const p_Model);
     //ListOptionCar
     Vector<OptionCar, NB_OPTION_CAR>& getListOptionCar();
+    //Price
+    float& getPrice();
+    void setPrice(float p_Price);
 
 private:
     int m_Id;
@@ -66,4 +69,5 @@ private:
     Motor* m_pMotor;
     Model* m_pModel;
     Vector<OptionCar, NB_OPTION_CAR>  m_ListOptionCar;
+    float m_Price;
 };
