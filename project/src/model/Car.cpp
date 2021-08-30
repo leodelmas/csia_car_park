@@ -15,8 +15,7 @@ Car::Car():
     m_ReleaseDate(),
     m_pPlacement(NULL),
     m_pMotor(NULL),
-    m_pModel(NULL),
-    m_pListOptionCar(NULL)
+    m_pModel(NULL)
 {
 }
 
@@ -120,12 +119,7 @@ void Car::setModel(Model* p_pModel)
     m_pModel = p_pModel;
 }
 //ListOptionCar
-OptionCar** Car::getListOptionCar()
+Vector<OptionCar, NB_OPTION_CAR>& Car::getListOptionCar()
 {
-    return m_pListOptionCar;
-}
-void Car::setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR])
-{
-    //TODO: Créer un système d'assert
-    m_pListOptionCar = p_pListOptionCar;
+    return m_ListOptionCar;
 }

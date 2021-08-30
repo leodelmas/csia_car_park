@@ -13,6 +13,7 @@
 #include <Motor.h>
 #include <Model.h>
 #include <OptionCar.h>
+#include <Vector.h>
 
 class Car
 {
@@ -51,8 +52,7 @@ public:
     Model* getModel();
     void setModel(Model* const p_Model);
     //ListOptionCar
-    OptionCar** getListOptionCar();
-    void setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR]);
+    Vector<OptionCar, NB_OPTION_CAR>& getListOptionCar();
 
 private:
     int m_Id;
@@ -65,5 +65,5 @@ private:
     Placement* m_pPlacement;
     Motor* m_pMotor;
     Model* m_pModel;
-    OptionCar** m_pListOptionCar; //Tableau d'options
+    Vector<OptionCar, NB_OPTION_CAR>  m_ListOptionCar;
 };
