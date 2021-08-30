@@ -26,9 +26,9 @@ void Brand::setId(int p_pId)
 //Name
 const char* Brand::getName()
 {
-    return m_Name;
+    return m_Name.c_str();
 }
-void Brand::setName(const char* p_pName)
+void Brand::setName(const char* p_Name)
 {
-    m_Name = p_pName;
+	m_Name = p_Name;
 }

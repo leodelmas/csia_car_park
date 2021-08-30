@@ -23,5 +23,5 @@ public:
 
 private:
     int m_Id;
-    const char* m_Label;
+	std::string m_Label;
 };

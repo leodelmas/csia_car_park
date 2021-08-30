@@ -25,7 +25,7 @@ void OptionCar::setId(int p_Id)
 //Label
 const char* OptionCar::getLabel()
 {
-    return m_Label;
+    return m_Label.c_str();
 }
 void OptionCar::setLabel(const char* p_Label)
 {

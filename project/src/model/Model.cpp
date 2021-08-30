@@ -24,9 +24,9 @@ void Model::setId(int p_Id)
     m_Id = p_Id;
 }
 //Label
-const char*& Model::getLabel()
+const char* Model::getLabel()
 {
-    return m_Label;
+    return m_Label.c_str();
 }
 void Model::setLabel(const char* p_Label)
 {

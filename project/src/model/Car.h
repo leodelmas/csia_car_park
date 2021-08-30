@@ -62,7 +62,7 @@ private:
     int m_Id;
     int m_Kilometer;
     float m_Consumption;
-    const char* m_Color;
+	std::string m_Color;
     bool m_IsReserved;
     bool m_IsSold;
     int m_ReleaseDate;

@@ -26,7 +26,7 @@ void Seller::setId(int p_Id)
 //LastName
 const char* Seller::getLastName()
 {
-    return m_LastName;
+    return m_LastName.c_str();
 }
 void Seller::setLastName(const char* p_LastName)
 {
@@ -36,7 +36,7 @@ void Seller::setLastName(const char* p_LastName)
 //FirstName
 const char* Seller::getFirstName()
 {
-    return m_FirstName;
+    return m_FirstName.c_str();
 }
 void Seller::setFirstName(const char* p_FirstName)
 {

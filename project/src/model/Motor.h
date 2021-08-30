@@ -40,7 +40,7 @@ public:
 
 private:
     int m_Id;
-    const char* m_Name;
+	std::string m_Name;
     float m_Cylinder;
     int m_HorsePower;
     int m_NewtonMeter;

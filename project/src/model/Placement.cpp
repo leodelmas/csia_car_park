@@ -25,7 +25,7 @@ void Placement::setId(int p_Id)
 //Label
 const char* Placement::getLabel()
 {
-    return m_Label;
+    return m_Label.c_str();
 }
 void Placement::setLabel(const char* p_Label)
 {

@@ -38,10 +38,10 @@ public:
 
 private:
     int m_Id;
-    const char* m_FirstName;
-    const char* m_LastName;
-    const char* m_Email;
-    const char* m_Phone;
-    const char* m_Gender;
-    const char* m_Address;
+	std::string m_FirstName;
+	std::string m_LastName;
+	std::string m_Email;
+	std::string m_Phone;
+   	std::string m_Gender;
+	std::string m_Address;
 };

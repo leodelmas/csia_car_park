@@ -26,7 +26,7 @@ void Fuel::setId(int p_Iid)
 //Label
 const char* Fuel::getLabel()
 {
-    return m_Label;
+    return m_Label.c_str();
 }
 void Fuel::setLabel(const char* p_Label)
 {

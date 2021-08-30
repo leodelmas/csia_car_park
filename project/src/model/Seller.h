@@ -26,6 +26,6 @@ public:
 
 private:
     int m_Id;
-    const char* m_LastName;
-    const char* m_FirstName;
+	std::string m_LastName;
+	std::string m_FirstName;
 };

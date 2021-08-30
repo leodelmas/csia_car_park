@@ -30,7 +30,7 @@ void Motor::setId(int p_Id)
 //Name
 const char* Motor::getName()
 {
-    return m_Name;
+    return m_Name.c_str();
 }
 void Motor::setName(const char* p_Name)
 {

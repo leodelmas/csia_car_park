@@ -15,7 +15,7 @@ void App::launch()
     std::system("clear");
 
     // BDD
-    m_Bdd.setConnexion();
+   	m_Bdd.setConnexion();
     std::cout << "Chargement en cours..." << std::endl;
     
     m_Bdd.fillBrand(m_ListBrand);

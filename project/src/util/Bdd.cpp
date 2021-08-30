@@ -28,11 +28,12 @@ void Bdd::setConnexion()
     if (!mysql_real_connect(m_pMysql,HOST,USER,PASSWD,DB,PORT,NULL,0))
     {
         std::cout << "Impossible de se connecter à la base de donnée" << std::endl;
-	std::cout << mysql_error(m_pMysql) << std::endl;
+		std::cout << mysql_error(m_pMysql) << std::endl;
+		assert(false);
     }
     else
     {
-	std::cout << "Connexion à la base de données réussis" << std::endl;
+		std::cout << "Connexion à la base de données réussis" << std::endl;
     }
 }
 
@@ -42,7 +43,7 @@ void Bdd::execReq(const char* p_Req)
     if (mysql_query(m_pMysql, p_Req)) 
     {
         std::cout << mysql_error(m_pMysql) << std::endl;
-	assert(false);
+		assert(false);
     }
     
     m_pReq = mysql_use_result(m_pMysql);
@@ -55,9 +56,10 @@ void Bdd::fillBrand(Vector<Brand, MAX_BRAND>& p_pVector)
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
-	 Brand& l_Brand = p_pVector.selectOne();
-	 l_Brand.setId(atoi(m_Row[0]));
-	 l_Brand.setName(m_Row[1]);
+	 	Brand& l_Brand = p_pVector.selectOne();
+	 	l_Brand.setId(atoi(m_Row[0]));
+	 	l_Brand.setName(m_Row[1]);
+		std::cout << l_Brand.getName() << std::endl;
     }
 }
 
@@ -78,18 +80,18 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
 	Car& l_car = p_pVectorCar.selectOne();
 	l_car.setId(atoi(m_Row[0]));
 	l_car.setKilometer(atoi(m_Row[1]));
-     	l_car.setConsumption(atoi(m_Row[2]));
-     	l_car.setColor(m_Row[3]);
-     	l_car.setIsReserved(m_Row[4]);
-     	l_car.setReleaseDate(atoi(m_Row[5]));
-     // A faire crée dans le vector récupere un type de vector par id
-     for (int i = 0; i < p_pVectorPlacement.count(); i++){
-         Placement& l_Placement = p_pVectorPlacement.getOneElement(i);
-         if(l_Placement.getId() == atoi(m_Row[6]))
-         {
-             l_car.setPlacement(&l_Placement);
-         }
-     }
+    l_car.setConsumption(atoi(m_Row[2]));
+    l_car.setColor(m_Row[3]);
+    l_car.setIsReserved(m_Row[4]);
+    l_car.setReleaseDate(atoi(m_Row[5]));
+    // A faire crée dans le vector récupere un type de vector par id
+    for (int i = 0; i < p_pVectorPlacement.count(); i++){
+  		Placement& l_Placement = p_pVectorPlacement.getOneElement(i);
+        if(l_Placement.getId() == atoi(m_Row[6]))
+        {
+        	l_car.setPlacement(&l_Placement);
+        }
+    }
     
     for (int i = 0; i < p_pVectorMotor.count(); i++){
          Motor& l_pMotor = p_pVectorMotor.getOneElement(i);

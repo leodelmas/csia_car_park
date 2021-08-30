@@ -20,7 +20,7 @@ public:
     int& getId();
     void setId(int p_Id);
     //Label
-    const char*& getLabel();
+    const char* getLabel();
     void setLabel(const char* p_Label);
     //Brand
     Brand* getBrand();
@@ -28,6 +28,6 @@ public:
 
 private:
     int m_Id;
-    const char* m_Label;
+	std::string m_Label;
     Brand* m_pBrand;
 };

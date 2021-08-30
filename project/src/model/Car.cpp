@@ -52,7 +52,7 @@ void Car::setConsumption(float p_Consumption)
 //Color
 const char* Car::getColor()
 {
-    return m_Color;
+    return m_Color.c_str();
 }
 void Car::setColor(const char* p_Color)
 {
