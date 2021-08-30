@@ -15,11 +15,11 @@
 #include <Transaction.h>
 #include <DEFINITIONS.h>
 
-#define HOST "127.0.0.1"
-#define USER "root"
-#define PASSWD ""
+#define HOST "sylvain2005.freeboxos.fr"
+#define USER "sylvain"
+#define PASSWD "sylvain"
 #define DB "csia_car_park"
-#define PORT 3306
+#define PORT 50003
 
 class Bdd
 {

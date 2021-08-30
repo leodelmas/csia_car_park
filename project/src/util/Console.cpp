@@ -11,190 +11,217 @@ Console::Console() {}
 
 Console::~Console() {}
 
-void Console::displayMain()
+void Console::display_Main()
 {
     int choice;
 
     do
     {
-        displayLine("--- BIENVENUE ---");
-        displayLine("1. Afficher la liste des véhicules vendus");
-        displayLine("2. Afficher la liste des véhicules disponibles");
-        displayLine("3. Afficher la liste de tous les véhicules");
-        displayLine("4. Afficher la liste des clients");
-        displayLine("5. Afficher la liste des vendeurs");
-        displayLine("6. Afficher la liste des ventes");
-        displayLine("7. Ajouter un véhicule");
-        displayLine("8. Détails vente d'un véhicule");
-        displayLine("9. Vente d'un véhicule");
-        displayLine("10. Quitter");
+        display_Line("--- BIENVENUE ---");
+        display_Line("1. Afficher la liste des véhicules vendus");
+        display_Line("2. Afficher la liste des véhicules disponibles");
+        display_Line("3. Afficher la liste de tous les véhicules");
+        display_Line("4. Afficher la liste des clients");
+        display_Line("5. Afficher la liste des vendeurs");
+        display_Line("6. Afficher la liste des ventes");
+        display_Line("7. Ajouter un véhicule");
+        display_Line("8. Détails vente d'un véhicule");
+        display_Line("9. Vente d'un véhicule");
+        display_Line("10. Quitter");
 
         std::cin >> choice;
 
         switch (choice)
         {
             case 1:
-                displayCarsSoldList();
+                display_CarsSoldList();
                 break;
             case 2:
-                displayCarsAvailableList();
+                display_CarsAvailableList();
                 break;
             case 3:
-                displayCarsList();
+                display_CarsList();
                 break;
             case 4:
-                displayCustomersList();
+                display_CustomersList();
                 break;
             case 5:
-                displaySellersList();
+                display_SellersList();
                 break;
             case 6:
-                displayTransactionsList();
+                display_TransactionsList();
                 break;
             case 7:
-                displayAddCarForm();
+                display_AddCarForm();
                 break;
             case 8:
-                displayTransactionDetails();
+                display_TransactionDetails();
                 break;
             case 9:
-                displayAddCarForm();
+                display_AddCarForm();
                 break;
             case 10:
-                displayLine("Bye bye XOXO ! ;D");
+                display_Line("Bye bye XOXO ! ;D");
                 exit;
                 break;
             default:
-                displayLine("Commande inconnue ! :/");
+                display_Line("Commande inconnue ! :/");
                 break;
         }
     } while (choice != 0);
 }
 
-void Console::displayLine(const char *text)
+void Console::set_Vector(Vector<Brand, MAX_BRAND>* p_pListBrand, Vector<Car, MAX_CAR>* p_pListCar, Vector<Customer, MAX_CUSTOMER>* p_pListCustomer, Vector<Fuel, MAX_FUEL>* p_pListFuel,
+                    Vector<Model, MAX_MODEL>* p_pListModel, Vector<Motor, MAX_MOTOR>* p_pListMotor, Vector<OptionCar, MAX_OPTION_CAR>* p_pListOptionCar, Vector<Placement, MAX_PLACEMENT>* p_pListPlacement,
+                    Vector<Seller, MAX_SELLER>* p_pListSeller, Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction)
+{
+    assert(NULL != p_pListBrand);
+    assert(NULL != p_pListCar);
+    assert(NULL != p_pListCustomer);
+    assert(NULL != p_pListFuel);
+    assert(NULL != p_pListModel);
+    assert(NULL != p_pListMotor);
+    assert(NULL != p_pListOptionCar);
+    assert(NULL != p_pListPlacement);
+    assert(NULL != p_pListSeller);
+    assert(NULL != p_pListTransaction);
+
+    m_pListBrand 	= p_pListBrand;
+    m_pListCar 		= p_pListCar;
+    m_pListCustomer 	= p_pListCustomer;
+    m_pListFuel 	= p_pListFuel;
+    m_pListModel 	= p_pListModel;
+    m_pListMotor 	= p_pListMotor;
+    m_pListOptionCar	= p_pListOptionCar;
+    m_pListPlacement	= p_pListPlacement;
+    m_pListSeller	= p_pListSeller;
+    m_pListTransaction	= p_pListTransaction;
+}
+
+void Console::display_Line(const char *text)
 {
     std::cout << text << std::endl;
 }
 
-void Console::displayCarConcatProp(Car& car)
+void Console::display_CarConcatProp(Car& car)
 {
     m_String << " Vehicule " << car.getId() << " " << car.getModel()->getBrand() << " " << car.getModel()->getLabel() << " de " << car.getReleaseDate().tm_year;
-    displayLine(m_String.str().c_str());
+    display_Line(m_String.str().c_str());
 }
 
-void Console::displayCarsSoldList()
+void Console::display_CarsSoldList()
 {
     // TODO: Remplacer par une liste de voitures vendues
-    displayLine("--- LISTE DES VOITURES VENDUES ---");
-    for (int i; i < m_ListCar->count(); i++) {
-        Car& car = m_ListCar->getOneElement(i);
-        displayCarConcatProp(car);
+    display_Line("--- LISTE DES VOITURES VENDUES ---");
+    for (int i; i < m_pListCar->count(); i++) {
+        Car& car = m_pListCar->getOneElement(i);
+        display_CarConcatProp(car);
     }
 }
 
-void Console::displayCarsAvailableList()
+void Console::display_CarsAvailableList()
 {
     // TODO: Remplacer par une liste de voitures dispos
-    displayLine("--- LISTE DES VOITURES ---");
-    for (int i; i < m_ListCar->count(); i++) {
-        Car& car = m_ListCar->getOneElement(i);
-        displayCarConcatProp(car);
+    display_Line("--- LISTE DES VOITURES ---");
+    for (int i; i < m_pListCar->count(); i++) {
+        Car& car = m_pListCar->getOneElement(i);
+        display_CarConcatProp(car);
     }
 }
 
-void Console::displayCarsList()
+void Console::display_CarsList()
 {
-    displayLine("--- LISTE DES VOITURES ---");
-    for (int i; i < m_ListCar->count(); i++) {
-        Car& car = m_ListCar->getOneElement(i);
-        displayCarConcatProp(car);
+    display_Line("--- LISTE DES VOITURES ---");
+    for (int i; i < m_pListCar->count(); i++) {
+        Car& car = m_pListCar->getOneElement(i);
+        display_CarConcatProp(car);
     }
 }
 
-void Console::displayCustomersList()
+void Console::display_CustomersList()
 {
-    displayLine("--- LISTE DES CLIENTS ---");
-    for (int i; i < m_ListCustomer->count(); i++) {
-        Customer& customer = m_ListCustomer->getOneElement(i);
+    display_Line("--- LISTE DES CLIENTS ---");
+    for (int i; i < m_pListCustomer->count(); i++) {
+        Customer& customer = m_pListCustomer->getOneElement(i);
         m_String << "Client " << customer.getId() << " : " << customer.getLastName() << " " << customer.getFirstName();
-        displayLine(m_String.str().c_str());
+        display_Line(m_String.str().c_str());
     }
 }
 
-void Console::displaySellersList()
+void Console::display_SellersList()
 {
-    displayLine("--- LISTE DES VENDEURS ---");
-    for (int i; i < m_ListSeller->count(); i++) {
-        Seller& seller = m_ListSeller->getOneElement(i);
+    display_Line("--- LISTE DES VENDEURS ---");
+    for (int i; i < m_pListSeller->count(); i++) {
+        Seller& seller = m_pListSeller->getOneElement(i);
         m_String << "Vendeur " << seller.getId() << " : " << seller.getLastName() << " " << seller.getFirstName();
-        displayLine(m_String.str().c_str());
+        display_Line(m_String.str().c_str());
     }
 }
 
-void Console::displayTransactionsList()
+void Console::display_TransactionsList()
 {
-    displayLine("--- LISTE DES VENTES ---");
+    display_Line("--- LISTE DES VENTES ---");
 }
 
-void Console::displayAddCarForm()
+void Console::display_AddCarForm()
 {
     int brandId;
     int modelId;
     int fuelId;
 
-    displayLine("--- AJOUTER UNE VOITURE ---");
-    displayLine("Entrer l'id de la marque :");
-    displayBrandList();
+    display_Line("--- AJOUTER UNE VOITURE ---");
+    display_Line("Entrer l'id de la marque :");
+    display_BrandList();
     std::cin >> brandId;
-    displayLine("Entrer le modèle :");
-    displayModelList(brandId);
+    display_Line("Entrer le modèle :");
+    display_ModelList(brandId);
     std::cin >> modelId;
-    displayLine("Entrer l'immatriculation :");
-    displayLine("Entrer l'énergie :");
-    displayFuelList();
+    display_Line("Entrer l'immatriculation :");
+    display_Line("Entrer l'énergie :");
+    display_FuelList();
     std::cin >> fuelId;
-    displayLine("Entrer la transmition :");
-    displayLine("Entrer la couleur :");
-    displayLine("Entrer le nombre de porte :");
-    displayLine("Entrer l'année :");
-    displayLine("Entrer le nombre de km :");
-    displayLine("Entrer le prix de vente :");
-    displayLine("Ajout du véhicule réussi !");
+    display_Line("Entrer la transmition :");
+    display_Line("Entrer la couleur :");
+    display_Line("Entrer le nombre de porte :");
+    display_Line("Entrer l'année :");
+    display_Line("Entrer le nombre de km :");
+    display_Line("Entrer le prix de vente :");
+    display_Line("Ajout du véhicule réussi !");
 }
 
-void Console::displayTransactionDetails()
+void Console::display_TransactionDetails()
 {
-    displayLine("--- AFFICHER LES DETAILS D'UNE VENTE ---");
+    display_Line("--- AFFICHER LES DETAILS D'UNE VENTE ---");
 }
 
-void Console::displayInitTransactionForm()
+void Console::display_InitTransactionForm()
 {
 
 }
 
-void Console::displayBrandList()
+void Console::display_BrandList()
 {
-    displayLine("--- LISTE DES MARQUES ---");
-    for (int i; i < m_ListBrand->count(); i++) {
-        Brand& brand = m_ListBrand->getOneElement(i);
+    display_Line("--- LISTE DES MARQUES ---");
+    for (int i; i < m_pListBrand->count(); i++) {
+        Brand& brand = m_pListBrand->getOneElement(i);
         m_String << "Marque " << brand.getId() << " : " << brand.getName();
     }
 }
 
-void Console::displayModelList(int p_BrandId)
+void Console::display_ModelList(int p_BrandId)
 {
-    displayLine("--- LISTE DES MARQUES ---");
-    for (int i; i < m_ListModel->count(); i++) {
-        Model& model = m_ListModel->getOneElement(i);
+    display_Line("--- LISTE DES MARQUES ---");
+    for (int i; i < m_pListModel->count(); i++) {
+        Model& model = m_pListModel->getOneElement(i);
         m_String << "Modèle " << model.getId() << " : " << model.getLabel();
     }
 }
 
-void Console::displayFuelList()
+void Console::display_FuelList()
 {
-    displayLine("--- LISTE DES ENERGIES ---");
-    for (int i; i < m_ListFuel->count(); i++) {
-        Fuel& fuel = m_ListFuel->getOneElement(i);
+    display_Line("--- LISTE DES ENERGIES ---");
+    for (int i; i < m_pListFuel->count(); i++) {
+        Fuel& fuel = m_pListFuel->getOneElement(i);
         m_String << "Energie " << fuel.getId() << " : " << fuel.getLabel();
     }
 }

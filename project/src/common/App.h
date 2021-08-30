@@ -19,6 +19,7 @@
 #include <Seller.h>
 #include <Vector.h>
 #include <Bdd.h>
+#include <Console.h>
 
 class App
 {
@@ -38,7 +39,9 @@ private:
     Vector<Placement, MAX_PLACEMENT> m_ListPlacement;
     Vector<Seller, MAX_SELLER> m_ListSeller;
     Vector<Transaction, MAX_TRANSACTION> m_ListTransaction;
+
     Bdd m_Bdd;
+    Console m_Console;
     
 public:
     void launch();

@@ -27,6 +27,10 @@ void Bdd::setConnexion()
         std::cout << "Impossible de se connecter à la base de donnée" << std::endl;
 	std::cout << mysql_error(m_pMysql) << std::endl;
     }
+    else
+    {
+	std::cout << "Connexion à la base de données réussis" << std::endl;
+    }
 }
 
 //Requête
