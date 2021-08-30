@@ -21,7 +21,6 @@ public:
     ~Console();
 
 private:
-    void display_Line(const char *text);
     void display_CarConcatProp(Car& car);
     void display_CarsSoldList();
     void display_CarsAvailableList();
