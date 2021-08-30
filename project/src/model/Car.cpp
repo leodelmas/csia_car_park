@@ -29,7 +29,6 @@ int& Car::getId()
 }
 void Car::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //Kilometer
@@ -39,7 +38,6 @@ int& Car::getKilometer()
 }
 void Car::setKilometer(int p_Kilometer)
 {
-    //TODO: Créer un système d'assert
     m_Kilometer = p_Kilometer;
 }
 //Consumption
@@ -49,17 +47,15 @@ float& Car::getConsumption()
 }
 void Car::setConsumption(float p_Consumption)
 {
-    //TODO: Créer un système d'assert
     m_Consumption = p_Consumption;
 }
 //Color
-std::string& Car::getColor()
+const char* Car::getColor()
 {
     return m_Color;
 }
-void Car::setColor(std::string p_Color)
+void Car::setColor(const char* p_Color)
 {
-    //TODO: Créer un système d'assert
     m_Color = p_Color;
 }
 //IsReserved
@@ -81,14 +77,13 @@ void Car::setIsSold(bool p_IsSold)
     m_IsSold = p_IsSold;
 }
 //ReleaseDate
-tm& Car::getReleaseDate()
+int Car::getReleaseDate()
 {
     return m_ReleaseDate;
 }
-void Car::setReleaseDate(int p_Year, int p_Month, int p_Day)
+void Car::setReleaseDate(int p_Year)
 {
-    //TODO: Créer un système d'assert
-    
+   m_Year = p_Year; 
 }
 //Placement
 Placement* Car::getPlacement()
@@ -97,7 +92,7 @@ Placement* Car::getPlacement()
 }
 void Car::setPlacement(Placement* p_pPlacement)
 {
-    //TODO: Créer un système d'assert
+	assert(NULL != p_pPlacement);
     m_pPlacement = p_pPlacement;
 }
 //Motor
@@ -107,7 +102,7 @@ Motor* Car::getMotor()
 }
 void Car::setMotor(Motor* p_pMotor)
 {
-    //TODO: Créer un système d'assert
+	assert(NULL != p_pMotor);
     m_pMotor = p_pMotor;
 }
 //Model
@@ -117,6 +112,7 @@ Model* Car::getModel()
 }
 void Car::setModel(Model* p_pModel)
 {
+	assert(NULL != p_pModel);
     m_pModel = p_pModel;
 }
 //ListOptionCar
@@ -131,6 +127,5 @@ float& Car::getPrice()
 }
 void Car::setPrice(float p_Price)
 {
-    //TODO: Créer un système d'assert
     m_Price = p_Price;
 }

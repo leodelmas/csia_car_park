@@ -31,8 +31,8 @@ public:
     float& getConsumption();
     void setConsumption(float p_Consumption);
     //Color
-    std::string& getColor();
-    void setColor(std::string p_Color);
+    const char* getColor();
+    void setColor(const char* p_Color);
     //IsReserved
     bool& getIsReserved();
     void setIsReserved(bool p_IsReserved);
@@ -40,8 +40,8 @@ public:
     bool& getIsSold();
     void setIsSold(bool p_IsSold);
     //ReleaseDate
-    tm& getReleaseDate();
-    void setReleaseDate(int p_Year, int p_Month, int p_Day);
+    int getReleaseDate();
+    void setReleaseDate(int p_Year);
     //Placement
     Placement* getPlacement();
     void setPlacement(Placement* const p_Placement);
@@ -61,10 +61,10 @@ private:
     int m_Id;
     int m_Kilometer;
     float m_Consumption;
-    std::string m_Color;
+    const char* m_Color;
     bool m_IsReserved;
     bool m_IsSold;
-    tm m_ReleaseDate;
+    int m_ReleaseDate;
     Placement* m_pPlacement;
     Motor* m_pMotor;
     Model* m_pModel;
