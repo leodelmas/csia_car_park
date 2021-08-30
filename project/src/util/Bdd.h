@@ -10,7 +10,8 @@
 #include <mysql/mysql.h>
 #include <Vector.h>
 #include <Assert.h>
-
+#include <Placement.h>
+#include <Motor.h>
 #include <Brand.h>
 #include <Transaction.h>
 #include <DEFINITIONS.h>
@@ -28,23 +29,27 @@ public:
     //Brand
     void fillBrand(Vector<Brand, MAX_BRAND>& p_pVector);
     //Car
-    void fillCar(Vector<Car, MAX_BRAND>& p_pVector);
+    void fillCar(Vector<Car, MAX_CAR>& p_pVector,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor);
     //Fuel
-    void fillFuel(Vector<Fuel, MAX_BRAND>& p_pVector);
+    void fillFuel(Vector<Fuel, MAX_FUEL>& p_pVector);
     //Model
-    void fillModel(Vector<Model, MAX_BRAND>& p_pVector);
+    void fillModel(Vector<Model, MAX_MODEL>& p_pVector,Vector<Brand, MAX_BRAND>& p_pVectorBrand);
     //Motor
-    void fillMotor(Vector<Motor, MAX_BRAND>& p_pVector);
+    void fillMotor(Vector<Motor, MAX_MOTOR>& p_pVector,Vector<Fuel, MAX_FUEL>& p_pVectorFuel);
     //OptionCar
-    void fillOptionCar(Vector<OptionCar, MAX_BRAND>& p_pVector);
+    void fillOptionCar(Vector<OptionCar, MAX_OPTION_CAR>& p_pVector);
     //Placement
-    void fillPlacement(Vector<Placement, MAX_BRAND>& p_pVector);
+    void fillPlacement(Vector<Placement, MAX_PLACEMENT>& p_pVector);
     //Seller
-    void fillSeller(Vector<Seller, MAX_BRAND>& p_pVector);
+    void fillSeller(Vector<Seller, MAX_SELLER>& p_pVector);
     //Transaction
-    void fillTransaction(Vector<Transaction, MAX_BRAND>& p_pVector);
+    void fillTransaction(Vector<Transaction, MAX_TRANSACTION>& p_pVector,Vector<Car, MAX_CAR>& p_pCar,Vector<Seller, MAX_SELLER>& p_pSeller,Vector<Customer, MAX_CUSTOMER>& p_pCustomer);
     //Customer
-    void fillCustomer(Vector<Customer, MAX_BRAND>& p_pVector);
+    void fillCustomer(Vector<Customer, MAX_CUSTOMER>& p_pVector);
+
+    //Insert into Brand
+    void insertBrand(const char* p_name);
+
 private:
     //Déclaration d'une variable de type MYSQL
     MYSQL* m_pMysql; 
