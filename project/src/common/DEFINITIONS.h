@@ -18,4 +18,4 @@
 #define MAX_OPTION_CAR  60
 #define MAX_PLACEMENT   200
 #define MAX_SELLER      20
-#define MAX_TRANSACTIONS      300
+#define MAX_TRANSACTION	300

@@ -6,7 +6,6 @@
 
 #pragma once
 
-#include <string>
 #include <Car.h>
 #include <Seller.h>
 #include <Customer.h>
@@ -29,7 +28,7 @@ public:
     void setCar(Car* p_pCar);
     //Seller
     Seller* getSeller();
-    void setSeller(Car* p_pSeller);
+    void setSeller(Seller* p_pSeller);
     //Customer
     Customer* getCustomer();
     void setCustomer(Customer* p_pCustomer);

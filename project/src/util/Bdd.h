@@ -12,6 +12,7 @@
 #include <Assert.h>
 
 #include <Brand.h>
+#include <Transaction.h>
 #include <DEFINITIONS.h>
 
 #define HOST "127.0.0.1"
@@ -48,6 +49,8 @@ public:
     void fillSeller(Vector<Seller, MAX_BRAND>& p_pVector);
     //Transaction
     void fillTransaction(Vector<Transaction, MAX_BRAND>& p_pVector);
+    //Customer
+    void fillCustomer(Vector<Customer, MAX_BRAND>& p_pVector);
 private:
     //Déclaration d'une variable de type MYSQL
     MYSQL* m_pMysql; 

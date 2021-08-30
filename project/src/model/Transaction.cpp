@@ -8,10 +8,10 @@
 
 Transaction::Transaction():
     m_Id(0),
-    m_SellDate();
-    m_pCar(NULL);
-    m_pSeller(NULL);
-    m_pCustomer(NULL);
+    m_SellDate(),
+    m_pCar(NULL),
+    m_pSeller(NULL),
+    m_pCustomer(NULL)
 {
 }
 
@@ -65,14 +65,4 @@ Customer* Transaction::getCustomer()
 void Transaction::setCustomer(Customer* p_pCustomer)
 {
     m_pCustomer = p_pCustomer;
-}
-//ListOptionCar
-OptionCar** Car::getListOptionCar()
-{
-    return m_pListOptionCar;
-}
-void Car::setListOptionCar(OptionCar* p_pListOptionCar[NB_OPTION_CAR])
-{
-    //TODO: Créer un système d'assert
-    m_pListOptionCar = p_pListOptionCar;
 }

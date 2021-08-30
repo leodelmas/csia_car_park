@@ -61,13 +61,13 @@ void Bdd::fillCar(Vector<Car, MAX_BRAND>& p_pVector)
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
-	 Car& l_car = p_pVector.selectOne();
-	 l_car.setId(atoi(m_Row[0]));
-	 l_car.setKilometer(atoi(m_Row[1]));
-     l_car.setConsumption(atoi(m_Row[2]));
-     l_car.setColor(m_Row[3]);
-     l_car.setIsReserved(m_Row[4]);
-     l_car.setReleaseDate(m_row[5]);
+	Car& l_car = p_pVector.selectOne();
+	l_car.setId(atoi(m_Row[0]));
+	l_car.setKilometer(atoi(m_Row[1]));
+     	l_car.setConsumption(atoi(m_Row[2]));
+     	l_car.setColor(m_Row[3]);
+     	l_car.setIsReserved(m_Row[4]);
+     	l_car.setReleaseDate(/*Year*/0, /*Month*/0, /*Day*/0);
      // A faire crée dans le vector récupere un type de vector par id
      //l_car.setPlacement
      //l_car.setMotorset
@@ -187,9 +187,9 @@ void Bdd::fillTransaction(Vector<Transaction, MAX_BRAND>& p_pVector)
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
-	 Tansaction& l_Transaction = p_pVector.selectOne();
+	 Transaction& l_Transaction = p_pVector.selectOne();
 	 l_Transaction.setId(atoi(m_Row[0]));
-	 l_Transaction.setSellDate(m_Row[1]);
+	 l_Transaction.setSellDate(/*Year*/0, /*Month*/0, /*Day*/0);
 
      // A faire crée dans le vector récupere un type de vector par id
 
