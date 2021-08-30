@@ -9,6 +9,7 @@
 #include <Car.h>
 #include <Seller.h>
 #include <Customer.h>
+#include <Assert.h>
 
 class Transaction
 {

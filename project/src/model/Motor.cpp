@@ -25,17 +25,15 @@ int& Motor::getId()
 }
 void Motor::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //Name
-std::string& Motor::getName()
+const char* Motor::getName()
 {
     return m_Name;
 }
-void Motor::setName(std::string p_Name)
+void Motor::setName(const char* p_Name)
 {
-    //TODO: Créer un système d'assert
     m_Name = p_Name;
 }
 //Cylinder
@@ -45,7 +43,6 @@ float& Motor::getCylinder()
 }
 void Motor::setCylinder(float p_Cylinder)
 {
-    //TODO: Créer un système d'assert
     m_Cylinder = p_Cylinder;
 }
 //HorsePower
@@ -55,7 +52,6 @@ int& Motor::getHorsePower()
 }
 void Motor::setHorsePower(int p_HorsePower)
 {
-    //TODO: Créer un système d'assert
     m_HorsePower = p_HorsePower;
 }
 //NewtonMeter
@@ -65,7 +61,6 @@ int& Motor::getNewtonMeter()
 }
 void Motor::setNewtonMetel(int p_NewtonMeter)
 {
-    //TODO: Créer un système d'assert
     m_NewtonMeter = p_NewtonMeter;
 }
 //NumberCylinder
@@ -75,7 +70,6 @@ int& Motor::getNumberCylinder()
 }
 void Motor::setNumberCylinder(int p_NumberCylinder)
 {
-    //TODO: Créer un système d'assert
     m_NumberCylinder = p_NumberCylinder;
 }
 //Fuel
@@ -85,8 +79,6 @@ Fuel* Motor::getFuel()
 }
 void Motor::setFuel(Fuel* p_pFuel)
 {
-    //TODO: Créer un système d'assert
-    //dbgAssert(p_pFuel == null);
-    //dbgAssert(p_pFuel != null);
+    dbgAssert(NULL != p_pFuel);
     m_pFuel = p_pFuel;
 }

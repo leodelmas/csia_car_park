@@ -29,7 +29,7 @@ void Customer::setId(int p_Id)
     m_Id = p_Id;
 }
 //FirstName
-const char*& Customer::getFirstName()
+const char* Customer::getFirstName()
 {
     return m_FirstName;
 }
@@ -38,7 +38,7 @@ void Customer::setFirstName(const char* p_FirstName)
     m_FirstName = p_FirstName;
 }
 //LastName
-const char*& Customer::getLastName()
+const char* Customer::getLastName()
 {
     return m_LastName;
 }
@@ -47,7 +47,7 @@ void Customer::setLastName(const char* p_LastName)
     m_LastName = p_LastName;
 }
 //Email
-const char*& Customer::getEmail()
+const char* Customer::getEmail()
 {
     return m_Email;
 }
@@ -56,7 +56,7 @@ void Customer::setEmail(const char* p_Email)
     m_Email = p_Email;
 }
 //Phone
-const char*& Customer::getPhone()
+const char* Customer::getPhone()
 {
     return m_Phone;
 }
@@ -65,7 +65,7 @@ void Customer::setPhone(const char* p_Phone)
     m_Phone = p_Phone;
 }
 //Gender
-const char*& Customer::getGender()
+const char* Customer::getGender()
 {
     return m_Gender;
 }
@@ -74,7 +74,7 @@ void Customer::setGender(const char* p_Gender)
     m_Gender = p_Gender;
 }
 //Address
-const char*& Customer::getAddress()
+const char* Customer::getAddress()
 {
     return m_Address;
 }

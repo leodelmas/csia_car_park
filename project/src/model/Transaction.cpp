@@ -24,7 +24,6 @@ int& Transaction::getId()
 }
 void Transaction::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //ReleaseDate
@@ -44,7 +43,7 @@ Car* Transaction::getCar()
 }
 void Transaction::setCar(Car* p_pCar)
 {
-    //TODO: Créer un système d'assert
+	assert(NULL != p_pCar);
     m_pCar = p_pCar;
 }
 //Seller
@@ -54,7 +53,7 @@ Seller* Transaction::getSeller()
 }
 void Transaction::setSeller(Seller* p_pSeller)
 {
-    //TODO: Créer un système d'assert
+	assert(NULL != p_pSeller);
     m_pSeller = p_pSeller;
 }
 //Customer
@@ -64,5 +63,6 @@ Customer* Transaction::getCustomer()
 }
 void Transaction::setCustomer(Customer* p_pCustomer)
 {
+	assert(NULL != p_pCustomer);
     m_pCustomer = p_pCustomer;
 }

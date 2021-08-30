@@ -8,6 +8,7 @@
 
 #include <string>
 #include <Fuel.h>
+#include <Assert.h>
 
 class Motor
 {
@@ -19,8 +20,8 @@ public:
     int& getId();
     void setId(int p_Id);
     //Name
-    std::string& getName();
-    void setName(std::string p_Name);
+    const char* getName();
+    void setName(const char* p_Name);
     //Cylinder
     float& getCylinder();
     void setCylinder(float p_Cylinder);
@@ -39,7 +40,7 @@ public:
 
 private:
     int m_Id;
-    std::string m_Name;
+    const char* m_Name;
     float m_Cylinder;
     int m_HorsePower;
     int m_NewtonMeter;

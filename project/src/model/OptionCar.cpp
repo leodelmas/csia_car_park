@@ -20,16 +20,14 @@ int& OptionCar::getId()
 }
 void OptionCar::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //Label
-std::string& OptionCar::getLabel()
+const char* OptionCar::getLabel()
 {
     return m_Label;
 }
-void OptionCar::setLabel(std::string p_Label)
+void OptionCar::setLabel(const char* p_Label)
 {
-    //TODO: Créer un système d'assert
     m_Label = p_Label;
 }

@@ -18,10 +18,10 @@ public:
     int& getId();
     void setId(int p_Id);
     //Label
-    std::string& getLabel();
-    void setLabel(std::string p_Label);
+    const char* getLabel();
+    void setLabel(const char* p_Label);
 
 private:
     int m_Id;
-    std::string m_Label;
+    const char* m_Label;
 };

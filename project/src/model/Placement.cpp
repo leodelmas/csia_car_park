@@ -20,16 +20,14 @@ int& Placement::getId()
 }
 void Placement::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //Label
-std::string& Placement::getLabel()
+const char* Placement::getLabel()
 {
     return m_Label;
 }
-void Placement::setLabel(std::string p_Label)
+void Placement::setLabel(const char* p_Label)
 {
-    //TODO: Créer un système d'assert
     m_Label = p_Label;
 }

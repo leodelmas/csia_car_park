@@ -18,14 +18,14 @@ public:
     int& getId();
     void setId(int p_Id);
     //LastName
-    std::string& getLastName();
-    void setLastName(std::string p_LastName);
+    const char* getLastName();
+    void setLastName(const char* p_LastName);
     //FirstName
-    std::string& getFirstName();
-    void setFirstName(std::string p_FirstName);
+    const char* getFirstName();
+    void setFirstName(const char* p_FirstName);
 
 private:
     int m_Id;
-    std::string m_LastName;
-    std::string m_FirstName;
+    const char* m_LastName;
+    const char* m_FirstName;
 };
