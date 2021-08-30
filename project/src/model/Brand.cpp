@@ -24,11 +24,11 @@ void Brand::setId(int p_pId)
     m_Id = p_pId;
 }
 //Name
-std::string& Brand::getName()
+const char* Brand::getName()
 {
     return m_Name;
 }
-void Brand::setName(std::string p_pName)
+void Brand::setName(const char* p_pName)
 {
     m_Name = p_pName;
 }

@@ -18,30 +18,30 @@ public:
     int& getId();
     void setId(int p_pId);
     //FirstName
-    std::string& getFirstName();
-    void setFirstName(std::string p_FirstName);
+    const char* getFirstName();
+    void setFirstName(const char* p_FirstName);
     //LastName
-    std::string& getLastName();
-    void setLastName(std::string p_LastName);
+    const char* getLastName();
+    void setLastName(const char* p_LastName);
     //Email
-    std::string& getEmail();
-    void setEmail(std::string p_Email);
+    const char* getEmail();
+    void setEmail(const char* p_Email);
     //Phone
-    std::string& getPhone();
-    void setPhone(std::string p_Phone);
+    const char* getPhone();
+    void setPhone(const char* p_Phone);
     //Gender
-    std::string& getGender();
-    void setGender(std::string p_Gender);
+    const char* getGender();
+    void setGender(const char* p_Gender);
     //Address
-    std::string& getAddress();
-    void setAddress(std::string p_Address);
+    const char* getAddress();
+    void setAddress(const char* p_Address);
 
 private:
     int m_Id;
-    std::string m_FirstName;
-    std::string m_LastName;
-    std::string m_Email;
-    std::string m_Phone;
-    std::string m_Gender;
-    std::string m_Address;
+    const char* m_FirstName;
+    const char* m_LastName;
+    const char* m_Email;
+    const char* m_Phone;
+    const char* m_Gender;
+    const char* m_Address;
 };

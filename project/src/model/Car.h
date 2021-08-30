@@ -14,6 +14,7 @@
 #include <Model.h>
 #include <OptionCar.h>
 #include <Vector.h>
+#include <Assert.h>
 
 class Car
 {

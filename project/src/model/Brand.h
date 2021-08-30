@@ -18,10 +18,10 @@ public:
     int& getId();
     void setId(int p_Id);
     //Name
-    std::string& getName();
-    void setName(std::string p_pName);
+    const char* getName();
+    void setName(const char* p_pName);
 
 private:
     int m_Id;
-    std::string m_Name;
+    const char* m_Name;
 };

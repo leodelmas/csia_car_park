@@ -8,6 +8,7 @@
 
 #include <string>
 #include <Brand.h>
+#include <Assert.h>
 
 class Model
 {
@@ -19,14 +20,14 @@ public:
     int& getId();
     void setId(int p_Id);
     //Label
-    std::string& getLabel();
-    void setLabel(std::string p_Label);
+    const char*& getLabel();
+    void setLabel(const char* p_Label);
     //Brand
     Brand* getBrand();
     void setBrand(Brand* p_pBrand);
 
 private:
     int m_Id;
-    std::string m_Label;
+    const char* m_Label;
     Brand* m_pBrand;
 };

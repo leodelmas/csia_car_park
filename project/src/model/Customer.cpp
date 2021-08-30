@@ -26,66 +26,59 @@ int& Customer::getId()
 }
 void Customer::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //FirstName
-std::string& Customer::getFirstName()
+const char*& Customer::getFirstName()
 {
     return m_FirstName;
 }
-void Customer::setFirstName(std::string p_FirstName)
+void Customer::setFirstName(const char* p_FirstName)
 {
-    //TODO: Créer un système d'assert
     m_FirstName = p_FirstName;
 }
 //LastName
-std::string& Customer::getLastName()
+const char*& Customer::getLastName()
 {
     return m_LastName;
 }
-void Customer::setLastName(std::string p_LastName)
+void Customer::setLastName(const char* p_LastName)
 {
-    //TODO: Créer un système d'assert
     m_LastName = p_LastName;
 }
 //Email
-std::string& Customer::getEmail()
+const char*& Customer::getEmail()
 {
     return m_Email;
 }
-void Customer::setEmail(std::string p_Email)
+void Customer::setEmail(const char* p_Email)
 {
-    //TODO: Créer un système d'assert
     m_Email = p_Email;
 }
 //Phone
-std::string& Customer::getPhone()
+const char*& Customer::getPhone()
 {
     return m_Phone;
 }
-void Customer::setPhone(std::string p_Phone)
+void Customer::setPhone(const char* p_Phone)
 {
-    //TODO: Créer un système d'assert
     m_Phone = p_Phone;
 }
 //Gender
-std::string& Customer::getGender()
+const char*& Customer::getGender()
 {
     return m_Gender;
 }
-void Customer::setGender(std::string p_Gender)
+void Customer::setGender(const char* p_Gender)
 {
-    //TODO: Créer un système d'assert
     m_Gender = p_Gender;
 }
 //Address
-std::string& Customer::getAddress()
+const char*& Customer::getAddress()
 {
     return m_Address;
 }
-void Customer::setAddress(std::string p_Address)
+void Customer::setAddress(const char* p_Address)
 {
-    //TODO: Créer un système d'assert
     m_Address = p_Address;
 }

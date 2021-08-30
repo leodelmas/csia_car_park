@@ -21,17 +21,15 @@ int& Model::getId()
 }
 void Model::setId(int p_Id)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Id;
 }
 //Label
-std::string& Model::getLabel()
+const char*& Model::getLabel()
 {
     return m_Label;
 }
-void Model::setLabel(std::string p_Label)
+void Model::setLabel(const char* p_Label)
 {
-    //TODO: Créer un système d'assert
     m_Label = p_Label;
 }
 //Brand
@@ -41,8 +39,6 @@ Brand* Model::getBrand()
 }
 void Model::setBrand(Brand* p_pBrand)
 {
-    //TODO: Créer un système d'assert
-    //dbgAssert(p_pBrand == null);
-    //dbgAssert(m_pBrand != null);
+    assert(NULL != p_pBrand);
     m_pBrand = p_pBrand;
 }

@@ -21,16 +21,14 @@ int& Fuel::getId()
 }
 void Fuel::setId(int p_Iid)
 {
-    //TODO: Créer un système d'assert
     m_Id = p_Iid;
 }
 //Label
-std::string& Fuel::getLabel()
+const char*& Fuel::getLabel()
 {
     return m_Label;
 }
-void Fuel::setLabel(std::string p_Label)
+void Fuel::setLabel(const char* p_Label)
 {
-    //TODO: Créer un système d'assert
     m_Label = p_Label;
 }
