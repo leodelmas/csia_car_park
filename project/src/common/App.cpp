@@ -12,6 +12,8 @@ App::~App(){}
 
 void App::launch()
 {
+    std::system("clear");
+
     // BDD
     m_Bdd.setConnexion();
     std::cout << "Chargement en cours..." << std::endl;
@@ -28,12 +30,8 @@ void App::launch()
 
 void App::running()
 {
-
-    while(1) //Stop the while with Console
-    {
-        closing();
-	break;
-    }
+    m_Console.display_Main();
+    closing();
 }
 
 void App::closing()

@@ -17,6 +17,7 @@ void Console::display_Main()
 
     do
     {
+        display_Line("");
         display_Line("--- BIENVENUE ---");
         display_Line("1. Afficher la liste des véhicules vendus");
         display_Line("2. Afficher la liste des véhicules disponibles");
@@ -28,8 +29,12 @@ void Console::display_Main()
         display_Line("8. Détails vente d'un véhicule");
         display_Line("9. Vente d'un véhicule");
         display_Line("10. Quitter");
+        display_Line("");
 
+	std::cout << "Votre choix: ";
         std::cin >> choice;
+
+	std::system("clear");
 
         switch (choice)
         {
@@ -61,14 +66,13 @@ void Console::display_Main()
                 display_AddCarForm();
                 break;
             case 10:
-                display_Line("Bye bye XOXO ! ;D");
                 exit;
                 break;
             default:
                 display_Line("Commande inconnue ! :/");
                 break;
         }
-    } while (choice != 0);
+    } while (choice != 10);
 }
 
 void Console::set_Vector(Vector<Brand, MAX_BRAND>* p_pListBrand, Vector<Car, MAX_CAR>* p_pListCar, Vector<Customer, MAX_CUSTOMER>* p_pListCustomer, Vector<Fuel, MAX_FUEL>* p_pListFuel,
