@@ -15,12 +15,6 @@
 #include <Transaction.h>
 #include <DEFINITIONS.h>
 
-#define HOST "sylvain2005.freeboxos.fr"
-#define USER "sylvain"
-#define PASSWD "sylvain"
-#define DB "csia_car_park"
-#define PORT 50003
-
 class Bdd
 {
 public:

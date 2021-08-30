@@ -19,3 +19,12 @@
 #define MAX_PLACEMENT   200
 #define MAX_SELLER      20
 #define MAX_TRANSACTION	300
+
+
+/* BDD */
+#define HOST "sylvain2005.freeboxos.fr"
+#define USER "sylvain"
+#define PASSWD "sylvain"
+#define DB "csia_car_park"
+#define PORT 50003
+
