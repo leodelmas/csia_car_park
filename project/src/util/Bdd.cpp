@@ -6,6 +6,7 @@
 
 #include <Bdd.h>
 #include <string.h>
+#include <iostream>
 Bdd::Bdd():
     m_pReq(NULL)
     ,m_Req()
@@ -102,23 +103,23 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
 
 void Bdd::insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price){
     char Vl_requete[100] = "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`) VALUES (";     
-    strcat(Vl_requete, p_kilometer);
+    strcat(Vl_requete, std::to_string(p_kilometer)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_consumption);
+    strcat(Vl_requete, std::to_string(p_consumption)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_color);
+    strcat(Vl_requete, std::to_string(p_color)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_isReserved);
+    strcat(Vl_requete, std::to_string(p_isReserved)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_sellDate);
+    strcat(Vl_requete, std::to_string(p_sellDate)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_idPlacement);
+    strcat(Vl_requete, std::to_string(p_idPlacement)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_idMotor);
+    strcat(Vl_requete, std::to_string(p_idMotor)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_idModel);
+    strcat(Vl_requete, std::to_string(p_idModel)).c_str());
     strcat(Vl_requete, ",");
-    strcat(Vl_requete, p_price);
+    strcat(Vl_requete, std::to_string(p_price)).c_str());
     strcat(Vl_requete, ")");
     execReq(Vl_requete);
 }
