@@ -30,11 +30,7 @@ void App::launch()
     m_Bdd.fillTransaction(m_ListTransaction,m_ListCar,m_ListSeller,m_ListCustomer);
 
     // Console
-    m_Console.set_Vector(&m_ListBrand, &m_ListCar, &m_ListCustomer, &m_ListFuel, &m_ListModel, &m_ListMotor,
-		    &m_ListOptionCar, &m_ListPlacement, &m_ListSeller, &m_ListTransaction);
-
-
-
+    m_Console.set_Vector(&m_ListBrand, &m_ListCar, &m_ListCustomer, &m_ListFuel, &m_ListModel, &m_ListMotor, &m_ListOptionCar, &m_ListPlacement, &m_ListSeller, &m_ListTransaction);
     running();
 }
 

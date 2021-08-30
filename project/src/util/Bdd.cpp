@@ -68,7 +68,7 @@ void Bdd::insertBrand(const char* p_name){
 //CAR
 void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor)
 {
-    execReq("SELECT id, kilometer, consumption, color, isReserved, releaseDate, idPlacement, idMotor, idModel FROM Car");
+    execReq("SELECT id, kilometer, consumption, color, isReserved, releaseDate, idPlacement, idMotor, idModel FROM car");
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
@@ -179,7 +179,7 @@ void Bdd::fillMotor(Vector<Motor, MAX_MOTOR>& p_pVector,Vector<Fuel, MAX_FUEL>& 
 //OptionCar
 void Bdd::fillOptionCar(Vector<OptionCar, MAX_OPTION_CAR>& p_pVector)
 {
-    execReq("SELECT id, label FROM optioncar");
+    execReq("SELECT id, label FROM optionCar");
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {

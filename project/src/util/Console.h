@@ -22,7 +22,6 @@ public:
 
 private:
     void display_CarConcatProp(Car& car);
-    void display_CarsSoldList();
     void display_CarsAvailableList();
     void display_CarsList();
     void display_CustomersList();
@@ -33,12 +32,11 @@ private:
     void display_InitTransactionForm();
     void display_BrandList();
     void display_ModelList(int p_BrandId);
-    void display_FuelList();
+    void display_MotorList();
 
     Vector<Brand, MAX_BRAND>* m_pListBrand;
     Vector<Car, MAX_CAR>* m_pListCar;
     Vector<Customer, MAX_CUSTOMER>* m_pListCustomer;
-    Vector<Fuel, MAX_FUEL>* m_pListFuel;
     Vector<Model, MAX_MODEL>* m_pListModel;
     Vector<Motor, MAX_MOTOR>* m_pListMotor;
     Vector<OptionCar, MAX_OPTION_CAR>* m_pListOptionCar;
@@ -48,7 +46,15 @@ private:
 
 public:
     void display_Main();
-    void set_Vector(Vector<Brand, MAX_BRAND>* p_pListBrand, Vector<Car, MAX_CAR>* p_pListCar, Vector<Customer, MAX_CUSTOMER>* p_pListCustomer, Vector<Fuel, MAX_FUEL>* p_pListFuel,
-		    Vector<Model, MAX_MODEL>* p_pListModel, Vector<Motor, MAX_MOTOR>* p_pListMotor, Vector<OptionCar, MAX_OPTION_CAR>* p_pListOptionCar, Vector<Placement, MAX_PLACEMENT>* p_pListPlacement,
-		    Vector<Seller, MAX_SELLER>* p_pListSeller, Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction);
+    void set_Vector(
+        Vector<Brand, MAX_BRAND>* p_pListBrand,
+        Vector<Car, MAX_CAR>* p_pListCar,
+        Vector<Customer, MAX_CUSTOMER>* p_pListCustomer,
+        Vector<Model, MAX_MODEL>* p_pListModel,
+        Vector<Motor, MAX_MOTOR>* p_pListMotor,
+        Vector<OptionCar, MAX_OPTION_CAR>* p_pListOptionCar,
+        Vector<Placement, MAX_PLACEMENT>* p_pListPlacement,
+        Vector<Seller, MAX_SELLER>* p_pListSeller,
+        Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction
+    );
 };
