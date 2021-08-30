@@ -103,7 +103,7 @@ void Bdd::fillCar(Vector<Car, MAX_CAR>& p_pVectorCar,Vector<Placement, MAX_PLACE
 //Customer
 void Bdd::fillCustomer(Vector<Customer, MAX_CUSTOMER>& p_pVector)
 {
-    execReq("SELECT id, firstname, lastname, email, phone, gender, adress FROM customer");
+    execReq("SELECT id, firstname, lastname, email, phone, gender, address FROM customer");
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
