@@ -26,36 +26,62 @@ public:
     void setConnexion();
     //Requête
     void execReq(const char* p_Req);
+	//All
+	void fillAll();
     //Brand
-    void fillBrand(Vector<Brand, MAX_BRAND>& p_pVector);
+    void fillBrand();
     //Car
-    void fillCar(Vector<Car, MAX_CAR>& p_pVector,Vector<Placement, MAX_PLACEMENT>& p_pVectorPlacement,Vector<Motor, MAX_MOTOR>& p_pVectorMotor, Vector<Model, MAX_MODEL>& p_pMVectorModel);
+    void fillCar();
     //Fuel
-    void fillFuel(Vector<Fuel, MAX_FUEL>& p_pVector);
+    void fillFuel();
     //Model
-    void fillModel(Vector<Model, MAX_MODEL>& p_pVector,Vector<Brand, MAX_BRAND>& p_pVectorBrand);
+    void fillModel();
     //Motor
-    void fillMotor(Vector<Motor, MAX_MOTOR>& p_pVector,Vector<Fuel, MAX_FUEL>& p_pVectorFuel);
+    void fillMotor();
     //OptionCar
-    void fillOptionCar(Vector<OptionCar, MAX_OPTION_CAR>& p_pVector);
+    void fillOptionCar();
     //Placement
-    void fillPlacement(Vector<Placement, MAX_PLACEMENT>& p_pVector);
+    void fillPlacement();
     //Seller
-    void fillSeller(Vector<Seller, MAX_SELLER>& p_pVector);
+    void fillSeller();
     //Transaction
-    void fillTransaction(Vector<Transaction, MAX_TRANSACTION>& p_pVector,Vector<Car, MAX_CAR>& p_pCar,Vector<Seller, MAX_SELLER>& p_pSeller,Vector<Customer, MAX_CUSTOMER>& p_pCustomer);
+    void fillTransaction();
     //Customer
-    void fillCustomer(Vector<Customer, MAX_CUSTOMER>& p_pVector);
+    void fillCustomer();
 
     //Insert into Brand
     void insertBrand(const char* p_name);
 
     //Insert into Car
     void insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price);
+
+	void register_Vector(
+        Vector<Brand, MAX_BRAND>* p_pListBrand,
+        Vector<Car, MAX_CAR>* p_pListCar,
+        Vector<Customer, MAX_CUSTOMER>* p_pListCustomer,
+        Vector<Model, MAX_MODEL>* p_pListModel,
+        Vector<Motor, MAX_MOTOR>* p_pListMotor,
+        Vector<OptionCar, MAX_OPTION_CAR>* p_pListOptionCar,
+        Vector<Placement, MAX_PLACEMENT>* p_pListPlacement,
+        Vector<Seller, MAX_SELLER>* p_pListSeller,
+        Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction,
+		Vector<Fuel, MAX_FUEL>* p_pListFuel
+    );
+
 private:
     //Déclaration d'une variable de type MYSQL
     MYSQL* m_pMysql; 
     MYSQL_RES* m_pReq;
     MYSQL_ROW m_Row;
-    std::string m_Req;
+
+	Vector<Brand, MAX_BRAND>* m_pListBrand;
+    Vector<Car, MAX_CAR>* m_pListCar;
+    Vector<Customer, MAX_CUSTOMER>* m_pListCustomer;
+    Vector<Model, MAX_MODEL>* m_pListModel;
+    Vector<Motor, MAX_MOTOR>* m_pListMotor;
+    Vector<Fuel, MAX_FUEL>* m_pListFuel;
+    Vector<OptionCar, MAX_OPTION_CAR>* m_pListOptionCar;
+    Vector<Placement, MAX_PLACEMENT>* m_pListPlacement;
+    Vector<Seller, MAX_SELLER>* m_pListSeller;
+    Vector<Transaction, MAX_TRANSACTION>* m_pListTransaction;
 };

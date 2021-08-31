@@ -35,6 +35,10 @@ private:
     void display_ModelList(int p_BrandId);
     void display_MotorList();
     void display_AddCustomerForm();
+	
+	char* saisie_Char(const char* p_Message);
+	int saisie_Int(const char* p_Message, int p_Min, int p_Max);
+	float saisie_Float(const char* p_Message, float p_Min, float p_Max);
 
     Vector<Brand, MAX_BRAND>* m_pListBrand;
     Vector<Car, MAX_CAR>* m_pListCar;
@@ -45,12 +49,13 @@ private:
     Vector<Placement, MAX_PLACEMENT>* m_pListPlacement;
     Vector<Seller, MAX_SELLER>* m_pListSeller;
     Vector<Transaction, MAX_TRANSACTION>* m_pListTransaction;
+	Vector<Fuel, MAX_FUEL>* m_pListFuel;
 
 	Bdd* m_pBdd;
 
 public:
     void display_Main();
-    void set_Vector(
+    void register_Vector(
         Vector<Brand, MAX_BRAND>* p_pListBrand,
         Vector<Car, MAX_CAR>* p_pListCar,
         Vector<Customer, MAX_CUSTOMER>* p_pListCustomer,
@@ -59,7 +64,8 @@ public:
         Vector<OptionCar, MAX_OPTION_CAR>* p_pListOptionCar,
         Vector<Placement, MAX_PLACEMENT>* p_pListPlacement,
         Vector<Seller, MAX_SELLER>* p_pListSeller,
-        Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction
+        Vector<Transaction, MAX_TRANSACTION>* p_pListTransaction,
+		Vector<Fuel, MAX_FUEL>* p_pListFuel
     );
 	void registerBdd(Bdd* p_pBdd);
 };
