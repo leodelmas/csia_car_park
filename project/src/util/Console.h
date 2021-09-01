@@ -13,6 +13,7 @@
 #include <Vector.h>
 #include <Transaction.h>
 #include <Bdd.h>
+#include <string.h>
 
 class Console
 {
@@ -36,10 +37,6 @@ private:
     void display_MotorList();
     void display_AddCustomerForm();
 	
-	char* saisie_Char(const char* p_Message);
-	int saisie_Int(const char* p_Message, int p_Min, int p_Max);
-	float saisie_Float(const char* p_Message, float p_Min, float p_Max);
-
     Vector<Brand, MAX_BRAND>* m_pListBrand;
     Vector<Car, MAX_CAR>* m_pListCar;
     Vector<Customer, MAX_CUSTOMER>* m_pListCustomer;
@@ -52,6 +49,7 @@ private:
 	Vector<Fuel, MAX_FUEL>* m_pListFuel;
 
 	Bdd* m_pBdd;
+	std::string m_Saisie;
 
 public:
     void display_Main();

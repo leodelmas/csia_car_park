@@ -131,47 +131,137 @@ void Bdd::fillCar()
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
-	Car& l_car = m_pListCar->selectOne();
-	l_car.setId(atoi(m_Row[0]));
-	l_car.setKilometer(atoi(m_Row[1]));
-    l_car.setConsumption(atoi(m_Row[2]));
-    l_car.setColor(m_Row[3]);
-    l_car.setIsReserved(m_Row[4]);
-    l_car.setReleaseDate(atoi(m_Row[5]));
+		Car& l_car = m_pListCar->selectOne();
+		l_car.setId(atoi(m_Row[0]));
+		l_car.setKilometer(atoi(m_Row[1]));
+    	l_car.setConsumption(atoi(m_Row[2]));
+    	l_car.setColor(m_Row[3]);
+    	l_car.setIsReserved(m_Row[4]);
+    	l_car.setReleaseDate(atoi(m_Row[5]));
 
-    for (int i = 0; i < m_pListPlacement->count(); i++){
-  		Placement& l_Placement = m_pListPlacement->getOneElement(i);
-        if(l_Placement.getId() == atoi(m_Row[6]))
-        {
-        	l_car.setPlacement(&l_Placement);
+    	for (int i = 0; i < m_pListPlacement->count(); i++){
+  			Placement& l_Placement = m_pListPlacement->getOneElement(i);
+        	if(l_Placement.getId() == atoi(m_Row[6]))
+        	{
+        		l_car.setPlacement(&l_Placement);
+    		}
     	}
-    }
     
-    for (int i = 0; i < m_pListMotor->count(); i++){
-        Motor& l_pMotor = m_pListMotor->getOneElement(i);
-        if(l_pMotor.getId() == atoi(m_Row[7]))
-        {
-        	l_car.setMotor(&l_pMotor);
-        }
+   		for (int i = 0; i < m_pListMotor->count(); i++){
+        	Motor& l_pMotor = m_pListMotor->getOneElement(i);
+        	if(l_pMotor.getId() == atoi(m_Row[7]))
+        	{
+        		l_car.setMotor(&l_pMotor);
+        	}
+		}
+
+    	for (int i = 0; i < m_pListModel->count(); i++){
+        	Model& l_Model = m_pListModel->getOneElement(i);
+        	if(l_Model.getId() == atoi(m_Row[8]))
+        	{
+        		l_car.setModel(&l_Model);
+        	}
+		}
+
+	}
+	
+	// OptionCar
+	for(int i2 = 0; i2 < m_pListCar->count(); i2++)
+	{
+		Car& l_car = m_pListCar->getOneElement(i2);
+		l_car.getListOptionCar().clear_all();
+		
+		char Vl_Requete[666];
+		sprintf(Vl_Requete, "SELECT idOptionCar FROM optionCarList WHERE idCar=%d", l_car.getId());
+		execReq(Vl_Requete);
+	
+   		while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
+		{
+			for (int i = 0; i < m_pListOptionCar->count(); i++)
+			{
+				OptionCar& l_OptionCar = m_pListOptionCar->getOneElement(i);
+				if(l_OptionCar.getId() == atoi(m_Row[0]))
+				{
+					l_car.getListOptionCar().selectOne() = l_OptionCar.getId();
+				}
+			}
+		}
+	}
+}	
+
+char* Bdd::addslashes(const char* str){
+	size_t i = 0, x = 0, j = 0, size_x = 0;
+	char *str2 = NULL;
+
+	for(i=0; str[i]; i++){
+		if(str[i] == 0x5c)
+			x++;
+		else if(str[i] == 0x27)
+			x++;
+		else if(str[i] == 0x22)
+			x++;
 	}
 
-    for (int i = 0; i < m_pListModel->count(); i++){
-        Model& l_Model = m_pListModel->getOneElement(i);
-        if(l_Model.getId() == atoi(m_Row[8]))
-        {
-        	l_car.setModel(&l_Model);
-        }
+	size_x = x+i+1;
+
+	str2 = (char*) malloc(size_x*sizeof(char));
+
+	for(i=0;str[i];i++){
+		char c = str[i];
+
+		if(c == 0x27){
+			str2[j] = 0x5c;
+			j++;
+			str2[j] = c;
+		}
+
+		else if(c == 0x5c){
+			str2[j] = c;
+			j++;
+			str2[j] = c;
+		}
+
+		else if(c == 0x22){
+			str2[j] = 0x5c;
+			j++;
+			str2[j] = c;
+		}
+
+		else {
+			str2[j] = c;
+		}
+
+		j++;
 	}
 
-     //TODO: Charger les OptionCar
-    }
+	str2[j] = 0x0;
+	return str2;
 }
+
 
 void Bdd::insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price){
     char Vl_requete[666];     
     sprintf(Vl_requete, "INSERT INTO `car`( `kilometer`, `consumption`, `color`, `isReserved`, `releaseDate`, `idPlacement`, `idMotor`, `idModel`, `price`)" 
-			" VALUES (%d,%f,'%s',%d,%d,%d,%d,%d,%d)", p_kilometer,p_consumption,p_color,p_isReserved,p_sellDate,p_idPlacement,p_idMotor,p_idModel,p_price);
+			" VALUES (%d,%f,'%s',%d,%d,%d,%d,%d,%d)", p_kilometer,p_consumption,addslashes(p_color),p_isReserved,p_sellDate,p_idPlacement,p_idMotor,p_idModel,p_price);
     execReq(Vl_requete);
+}
+
+void Bdd::insertCustomer(const char* p_FirstName,const char* p_LastName,const char* p_Email, const char* p_Phone, const char* p_Gender, const char* p_Address)
+{
+	char Vl_Requete[666];
+	sprintf(Vl_Requete, "INSERT INTO `customer`(`firstname`, `lastname`, `email`, `phone`, `gender`, `address`) VALUES ('%s','%s','%ss','%s','%s','%s')", addslashes(p_FirstName), addslashes(p_LastName), addslashes(p_Email), addslashes(p_Phone), addslashes(p_Gender), addslashes(p_Address));
+	execReq(Vl_Requete);
+}
+
+void Bdd::insertTransaction(int p_CarId, int p_SellerId, int p_CustomerId)
+{
+	char Vl_Requete[666];
+	time_t actuel = time(0);
+	tm *ltm = localtime(&actuel);
+
+	sprintf(Vl_Requete, "INSERT INTO transaction(sellDate,idCar,idSeller,idCustomer) VALUES ('%d/%d/%d',%d,%d,%d)", (1900 +ltm->tm_year), (1 + ltm->tm_mon), ltm->tm_mday, p_CarId, p_SellerId, p_CustomerId);
+	std::cout << Vl_Requete << std::endl;
+	execReq(Vl_Requete);
 }
 
 //Customer
@@ -309,18 +399,17 @@ void Bdd::fillTransaction()
 {
 	m_pListTransaction->clear_all();
 
-    execReq("SELECT id, sellDate, idCar, idSeller, idCustomer FROM transaction");
+	execReq("SELECT `id`, YEAR(`sellDate`), MONTH(`sellDate`), DAY(`sellDate`), `idCar`, `idSeller`, `idCustomer` FROM `transaction`");
 
     while ((m_Row = mysql_fetch_row(m_pReq)) != NULL)
     {
 	 Transaction& l_Transaction = m_pListTransaction->selectOne();
 	 l_Transaction.setId(atoi(m_Row[0]));
-	 //TODO: Faire la date
-	 l_Transaction.setSellDate(/*Year*/0, /*Month*/0, /*Day*/0);
+	 l_Transaction.setSellDate(atoi(m_Row[1]), atoi(m_Row[2]), atoi(m_Row[3]));
 
      for (int i = 0; i < m_pListCar->count(); i++){
          Car& l_pCar = m_pListCar->getOneElement(i);
-         if(l_pCar.getId() == atoi(m_Row[2]))
+         if(l_pCar.getId() == atoi(m_Row[4]))
          {
              l_Transaction.setCar(&l_pCar);
          }
@@ -328,7 +417,7 @@ void Bdd::fillTransaction()
 
      for (int i = 0; i < m_pListSeller->count(); i++){
          Seller& l_pSeller = m_pListSeller->getOneElement(i);
-         if(l_pSeller.getId() == atoi(m_Row[3]))
+         if(l_pSeller.getId() == atoi(m_Row[5]))
          {
              l_Transaction.setSeller(&l_pSeller);
          }
@@ -336,7 +425,7 @@ void Bdd::fillTransaction()
 
      for (int i = 0; i < m_pListCustomer->count(); i++){
          Customer& l_pCustomer = m_pListCustomer->getOneElement(i);
-         if(l_pCustomer.getId() == atoi(m_Row[4]))
+         if(l_pCustomer.getId() == atoi(m_Row[6]))
          {
              l_Transaction.setCustomer(&l_pCustomer);
          }

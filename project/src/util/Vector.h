@@ -64,16 +64,12 @@ Vector<T, N>::~Vector()
 template<class T, int N>
 inline T& Vector<T, N>::operator[](const int& p_Id)
 {
-    // Assert si p_Id > N
-    // Assert si p_Id > count
     return m_Vector[p_Id];
 }
 
 template<class T, int N>
 inline const T& Vector<T, N>::operator[](const int& p_Id) const
 {
-    // Assert si p_Id > N
-    // Assert si p_Id > count
     return m_Vector[p_Id];
 }
 
@@ -92,8 +88,6 @@ int Vector<T, N>::count() const
 template<class T, int N>
 void Vector<T, N>::delette(const int& p_Id)
 {
-    //TODO: Assert si p_Id > count()
-
     if(p_Id == 0)
     {
         m_Vector[0] = m_Base;
@@ -112,7 +106,6 @@ void Vector<T, N>::delette(const int& p_Id)
 template<class T, int N>
 T& Vector<T, N>::selectOne()
 {
-    // Assert isfull = true
     return m_Vector[m_Count++];
 }
 

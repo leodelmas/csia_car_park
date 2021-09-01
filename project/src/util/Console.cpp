@@ -62,7 +62,7 @@ void Console::display_Main()
                 display_TransactionDetails();
                 break;
             case 9:
-                display_AddCarForm();
+				display_InitTransactionForm();
                 break;
 			case 10:
 				std::cout << "Rechargement en cours..." << std::endl;
@@ -132,11 +132,23 @@ void Console::display_CarConcatProp(Car& p_Car)
 
 void Console::display_CarsAvailableList()
 {
-    // TODO: Remplacer par une liste de voitures dispos
     std::cout << "--- LISTE DES VOITURES DISPONIBLES ---" << std::endl;
     for (int i = 0; i < m_pListCar->count(); i++) {
         Car& car = m_pListCar->getOneElement(i);
-        display_CarConcatProp(car);
+		bool l_Present = false;
+		for (int i2 = 0; i2 < m_pListTransaction->count(); i2++)
+		{
+			Transaction& l_Transaction = m_pListTransaction->getOneElement(i2);
+			if(l_Transaction.getCar()->getId() == car.getId())
+			{
+				l_Present = true;
+			}
+		}
+
+		if(l_Present == false)
+		{
+        	display_CarConcatProp(car);
+		}
     }
 }
 
@@ -183,7 +195,7 @@ void Console::display_AddCarForm()
     int l_MotorId;
     float l_Consumption;
     int l_Kilometer;
-    char* l_Color;
+    char l_Color[100];
     int l_ReleaseDate;
     float l_Price;
 
@@ -207,7 +219,9 @@ void Console::display_AddCarForm()
     std::cin >> l_Kilometer;
 
 	std::cout << "Entrer la couleur: ";
-    std::cin >> l_Color;
+	std::cin.ignore();
+	std::getline(std::cin, m_Saisie);
+	strcpy(l_Color, m_Saisie.c_str());
 
 	std::cout << "Entrer l'année: ";
     std::cin >> l_ReleaseDate;
@@ -257,6 +271,9 @@ void Console::display_InitTransactionForm()
     std::cout << "Entrez l'id du client: ";
     std::cin >> customerId;
 
+	m_pBdd->insertTransaction(carId, sellerId, customerId);
+	m_pBdd->fillTransaction();
+
     std::cout << "Ajout de la vente réussi !";
 }
 
@@ -271,11 +288,13 @@ void Console::display_BrandList()
 
 void Console::display_ModelList(int p_BrandId)
 {
-    // TODO: récupérer les modèles de la marque
-	std::cout << "--- LISTE DES MARQUES ---" << std::endl;
+	std::cout << "--- LISTE DES MODELES ---" << std::endl;
     for (int i = 0; i < m_pListModel->count(); i++) {
         Model& model = m_pListModel->getOneElement(i);
-	    std::cout << "Modèle " << model.getId() << ": " << model.getLabel() << std::endl;
+		if(model.getBrand()->getId() == p_BrandId)
+		{
+	    	std::cout << "Modèle " << model.getId() << ": " << model.getLabel() << std::endl;
+		}
     }
 }
 
@@ -290,80 +309,41 @@ void Console::display_MotorList()
 
 void Console::display_AddCustomerForm()
 {
-    char* firstname;
-    char lastname[255];
-    char email[255];
-    char phone[10];
-    char gender[1];
-    char address[255];
+	char firstname[255];
+	char lastname[255];
+	char email[255];
+	char phone[11];
+	char gender[2];
+	char address[255];
 
-    std::cout << "--- AJOUTER UN CLIENT ---" << std::endl;
-	firstname = saisie_Char("Entre le prénom du client: ");
+	std::cout << "--- AJOUTER UN CLIENT ---" << std::endl;
+	std::cout << "Entre le prénom du client :" << std::endl;
+	std::cin.ignore();
+	std::getline(std::cin, m_Saisie);
+	strcpy(firstname, m_Saisie.c_str());
 
-    std::cout << "Entre le nom du client: ";
-    std::cin >> lastname;
+	std::cout << "Entre le nom du client :" << std::endl;
+	std::getline(std::cin, m_Saisie);
+	strcpy(lastname, m_Saisie.c_str());
 
-    std::cout << "Entre l'email du client: ";
-    std::cin >> email;
+	std::cout << "Entre l'email du client :" << std::endl;
+	std::getline(std::cin, m_Saisie);
+	strcpy(email, m_Saisie.c_str());
 
-    std::cout << "Entre le téléphone du client: ";
-    std::cin >> phone;
+	std::cout << "Entre le téléphone du client :" << std::endl;
+	std::getline(std::cin, m_Saisie);
+	strcpy(phone, m_Saisie.c_str());
 
-    std::cout << "Entre le genre du client (M/F): ";
-    std::cin >> gender;
+	std::cout << "Entre le genre du client (M/F) :" << std::endl;
+	std::getline(std::cin, m_Saisie);
+	strcpy(gender, m_Saisie.c_str());
 
-    std::cout << "Entre l'adresse du client: ";
-    std::cin >> address;
+	std::cout << "Entre l'adresse du client :" << std::endl;
+	std::getline(std::cin, m_Saisie);
+	strcpy(address, m_Saisie.c_str());
 
-    // TODO: Enregistrement en bdd
+	m_pBdd->insertCustomer(firstname, lastname, email, phone, gender, address);
+	m_pBdd->fillCustomer();
 
     std::cout << "Ajout du client réussi !" << std::endl;
-}
-
-char* Console::saisie_Char(const char* p_Message)
-{
-	char l_Saisie[255];
-
-	std::cout << p_Message;
-	std::cin >> l_Saisie;
-
-	return l_Saisie;
-}
-
-int Console::saisie_Int(const char* p_Message, int p_Min, int p_Max)
-{
-	int l_Saisie = 0;
-
-	do
-	{
-		std::cout << p_Message;
-		std::cin >> l_Saisie;
-
-		if(std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore();
-		}	
-	}while(l_Saisie < p_Min || l_Saisie > p_Max);
-
-	return l_Saisie;
-}
-
-float Console::saisie_Float(const char* p_Message, float p_Min, float p_Max)
-{
-	float l_Saisie = 0.0f;
-
-	do
-	{
-		std::cout << p_Message;
-		std::cin >> l_Saisie;
-
-		if(std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore();
-		}
-	}while(l_Saisie < p_Min || l_Saisie > p_Max);
-
-	return l_Saisie;
 }

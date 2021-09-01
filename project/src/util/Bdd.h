@@ -55,6 +55,12 @@ public:
     //Insert into Car
     void insertCar(int p_kilometer,float p_consumption,const char* p_color,bool p_isReserved,int p_sellDate, int p_idPlacement,int p_idMotor,int p_idModel,int p_price);
 
+	void insertCustomer(const char* p_FirstName,const char* p_LastName,const char* p_Email, const char* p_Phone, const char* p_Gender, const char* p_Address);
+
+	void insertTransaction(int p_CarId, int p_SellerId, int p_CustomerId);
+
+	char* addslashes(const char* str);
+
 	void register_Vector(
         Vector<Brand, MAX_BRAND>* p_pListBrand,
         Vector<Car, MAX_CAR>* p_pListCar,

@@ -33,8 +33,10 @@ tm& Transaction::getSellDate()
 }
 void Transaction::setSellDate(int p_Year, int p_Month, int p_Day)
 {
-    //TODO: Créer un système d'assert
-    
+   m_SellDate.tm_year = p_Year;
+   m_SellDate.tm_mon = p_Year;
+   m_SellDate.tm_mday = p_Year;
+
 }
 //Car
 Car* Transaction::getCar()

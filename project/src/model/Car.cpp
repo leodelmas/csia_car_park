@@ -116,7 +116,7 @@ void Car::setModel(Model* p_pModel)
     m_pModel = p_pModel;
 }
 //ListOptionCar
-Vector<OptionCar, NB_OPTION_CAR>& Car::getListOptionCar()
+Vector<int, NB_OPTION_CAR>& Car::getListOptionCar()
 {
     return m_ListOptionCar;
 }
