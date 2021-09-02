@@ -245,11 +245,17 @@ void Console::display_TransactionDetails()
     std::cout << "Entrez l'id de la vente: ";
     std::cin >> transactionId;
 
-    Transaction& transaction = m_pListTransaction->getOneElement(transactionId);
-    std::cout << "--- DETAILS DE LA VENTE N°" << transaction.getId() << " ---" << std::endl;
-    std::cout << "Acheteur: " << transaction.getCustomer()->getFirstName() << " " << transaction.getCustomer()->getLastName() << " (" << transaction.getCustomer()->getEmail() << ")" << std::endl;
-    std::cout << "Vendeur: " << transaction.getSeller()->getFirstName() << " " << transaction.getSeller()->getLastName() << std::endl;
-    std::cout << "Voiture: " << transaction.getCar()->getModel()->getBrand()->getName() << " " << transaction.getCar()->getModel()->getLabel();
+	for (int i = 0; i < m_pListTransaction->count(); i++)
+	{
+		Transaction& l_Transaction = m_pListTransaction->getOneElement(i);
+		if(l_Transaction.getId() == transactionId)
+		{
+    		std::cout << "--- DETAILS DE LA VENTE N°" << l_Transaction.getId() << " ---" << std::endl;
+    		std::cout << "Acheteur: " << l_Transaction.getCustomer()->getFirstName() << " " << l_Transaction.getCustomer()->getLastName() << " (" << l_Transaction.getCustomer()->getEmail() << ")" << std::endl;
+    		std::cout << "Vendeur: " << l_Transaction.getSeller()->getFirstName() << " " << l_Transaction.getSeller()->getLastName() << std::endl;
+    		std::cout << "Voiture: " << l_Transaction.getCar()->getModel()->getBrand()->getName() << " " << l_Transaction.getCar()->getModel()->getLabel();
+		}
+	}
 }
 
 void Console::display_InitTransactionForm()

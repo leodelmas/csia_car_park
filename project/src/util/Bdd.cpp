@@ -260,7 +260,6 @@ void Bdd::insertTransaction(int p_CarId, int p_SellerId, int p_CustomerId)
 	tm *ltm = localtime(&actuel);
 
 	sprintf(Vl_Requete, "INSERT INTO transaction(sellDate,idCar,idSeller,idCustomer) VALUES ('%d/%d/%d',%d,%d,%d)", (1900 +ltm->tm_year), (1 + ltm->tm_mon), ltm->tm_mday, p_CarId, p_SellerId, p_CustomerId);
-	std::cout << Vl_Requete << std::endl;
 	execReq(Vl_Requete);
 }
 
