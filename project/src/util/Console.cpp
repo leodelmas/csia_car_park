@@ -193,24 +193,59 @@ void Console::display_AddCarForm()
     int l_BrandId;
     int l_ModelId;
     int l_MotorId;
+    int l_PlacementId;
     float l_Consumption;
     int l_Kilometer;
     char l_Color[100];
     int l_ReleaseDate;
     float l_Price;
+	bool l_Good = false;
 
     std::cout << "--- AJOUTER UNE VOITURE ---" << std::endl;
-    display_BrandList();
-	std::cout << "Entrer l'id de la marque: ";
-    std::cin >> l_BrandId;
+	do
+	{
+    	display_BrandList();
+		std::cout << "Entrer l'id de la marque: ";
+    	std::cin >> l_BrandId;
+		for (int i = 0; i < m_pListBrand->count(); i++)
+		{
+			if (m_pListBrand->getOneElement(i).getId() == l_BrandId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
 
-    display_ModelList(l_BrandId);
-	std::cout << "Entrer l'id du modèle: ";
-    std::cin >> l_ModelId;
+	do
+	{
+    	display_ModelList(l_BrandId);
+		std::cout << "Entrer l'id du modèle: ";
+    	std::cin >> l_ModelId;
+		for (int i = 0; i < m_pListModel->count(); i++)
+		{
+			if (m_pListModel->getOneElement(i).getId() == l_ModelId && m_pListModel->getOneElement(i).getBrand()->getId() == l_BrandId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
 
-    display_MotorList();
-    std::cout << "Entrer l'id du moteur: ";
-    std::cin >> l_MotorId;
+	do
+	{
+    	display_MotorList();
+    	std::cout << "Entrer l'id du moteur: ";
+    	std::cin >> l_MotorId;
+		for (int i = 0; i < m_pListMotor->count(); i++)
+		{
+			if (m_pListMotor->getOneElement(i).getId() == l_MotorId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
 
     std::cout << "Entrer la consommation - Nombre de litres pour 100kms (L/100KM): ";
     std::cin >> l_Consumption;
@@ -229,10 +264,34 @@ void Console::display_AddCarForm()
 	std::cout << "Entrer le prix de vente: ";
     std::cin >> l_Price;
 
-	m_pBdd->insertCar(l_Kilometer, l_Consumption, l_Color, false, l_ReleaseDate, 1, l_MotorId, l_ModelId, l_Price);
+	do
+	{
+		display_PlacementList();
+		std::cout << "Entrer l'id de l'emplacement: ";
+		std::cin >> l_PlacementId;
+		for (int i = 0; i < m_pListPlacement->count(); i++)
+		{
+			if (m_pListPlacement->getOneElement(i).getId() == l_PlacementId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
+
+	m_pBdd->insertCar(l_Kilometer, l_Consumption, l_Color, false, l_ReleaseDate, l_PlacementId, l_MotorId, l_ModelId, l_Price);
 	m_pBdd->fillCar();
 
 	std::cout << "Ajout du véhicule réussi !" << std::endl;
+}
+
+void Console::display_PlacementList()
+{
+    std::cout << "--- LISTE DES EMPLACEMENTS ---" << std::endl;
+    for (int i = 0; i < m_pListPlacement->count(); i++) {
+        Placement& placement = m_pListPlacement->getOneElement(i);
+	    std::cout << "Place " << placement.getId() << ": " << placement.getLabel() << std::endl;
+	}
 }
 
 void Console::display_TransactionDetails()
@@ -263,19 +322,65 @@ void Console::display_InitTransactionForm()
     int carId;
     int sellerId;
     int customerId;
+	bool l_Good = false;
 
-    std::cout << "--- VENDRE UNE VOITURE ---" << std::endl;
-    display_CarsAvailableList();
-    std::cout << "Entrez l'id de la voiture: ";
-    std::cin >> carId;
+	do
+	{
+    	std::cout << "--- VENDRE UNE VOITURE ---" << std::endl;
+    	display_CarsAvailableList();
+    	std::cout << "Entrez l'id de la voiture: ";
+    	std::cin >> carId;
+		for (int i = 0; i < m_pListCar->count(); i++)
+		{
+			bool l_Present = false;
+			for (int i2 = 0; i2 < m_pListTransaction->count(); i2++)
+			{
+				if(m_pListTransaction->getOneElement(i2).getCar()->getId() == carId)
+				{
+					l_Present = true;
+				}
+			}
 
-    display_SellersList();
-    std::cout << "Entrez l'id du vendeur: ";
-    std::cin >> sellerId;
+			if(l_Present == false)
+			{
+				if (m_pListCar->getOneElement(i).getId() == carId)
+				{
+					l_Good = true;
+				}
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
 
-    display_CustomersList();
-    std::cout << "Entrez l'id du client: ";
-    std::cin >> customerId;
+	do
+	{
+    	display_SellersList();
+    	std::cout << "Entrez l'id du vendeur: ";
+    	std::cin >> sellerId;
+		for (int i = 0; i < m_pListSeller->count(); i++)
+		{
+			if (m_pListSeller->getOneElement(i).getId() == sellerId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
+
+	do
+	{
+    	display_CustomersList();
+    	std::cout << "Entrez l'id du client: ";
+    	std::cin >> customerId;
+		for (int i = 0; i < m_pListCustomer->count(); i++)
+		{
+			if (m_pListCustomer->getOneElement(i).getId() == customerId)
+			{
+				l_Good = true;
+			}
+		}
+	}while(l_Good == false);
+	l_Good = false;
 
 	m_pBdd->insertTransaction(carId, sellerId, customerId);
 	m_pBdd->fillTransaction();
@@ -340,9 +445,12 @@ void Console::display_AddCustomerForm()
 	std::getline(std::cin, m_Saisie);
 	strcpy(phone, m_Saisie.c_str());
 
-	std::cout << "Entre le genre du client (M/F) :" << std::endl;
-	std::getline(std::cin, m_Saisie);
-	strcpy(gender, m_Saisie.c_str());
+	do
+	{
+		std::cout << "Entre le genre du client (M/F) :" << std::endl;
+		std::getline(std::cin, m_Saisie);
+		strcpy(gender, m_Saisie.c_str());
+	}while(m_Saisie != "M" && m_Saisie != "F");
 
 	std::cout << "Entre l'adresse du client :" << std::endl;
 	std::getline(std::cin, m_Saisie);

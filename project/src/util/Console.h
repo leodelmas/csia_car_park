@@ -30,6 +30,7 @@ private:
     void display_SellersList();
     void display_TransactionsList();
     void display_AddCarForm();
+	void display_PlacementList();
     void display_TransactionDetails();
     void display_InitTransactionForm();
     void display_BrandList();
